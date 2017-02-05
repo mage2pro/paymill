@@ -26,6 +26,16 @@ class Method extends \Df\StripeClone\Method {
 	/**
 	 * 2017-02-05
 	 * @override
+	 * @see \Df\StripeClone\Method::responseToArray()
+	 * @used-by \Df\StripeClone\Method::transInfo()
+	 * @param object $response
+	 * @return array(string => mixed)
+	 */
+	final protected function responseToArray($response) {return [];}
+
+	/**
+	 * 2017-02-05
+	 * @override
 	 * @see \Df\StripeClone\Method::scVoid()
 	 * @used-by \Df\StripeClone\Method::_refund()
 	 * @param string $chargeId
