@@ -210,6 +210,47 @@
 					<label>Payment Currency</label>
 					<depends><field id='enable'>1</field></depends>
 				</field>
+				<field
+					id='actionForNew'
+					translate='label'
+					type='select'
+					sortOrder='13'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Payment Action for a New Customer</label>
+					<source_model>Df\Payment\Source\ACR</source_model>
+					<comment><![CDATA[A customer is regarded as <b>new</b>, if he does not have any order in the «Completed» or «Processing» state.]]></comment>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='actionForReturned'
+					translate='label'
+					type='select'
+					sortOrder='14'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Payment Action for a Returned Customer</label>
+					<source_model>Df\Payment\Source\ACR</source_model>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='askForBillingAddress'
+					translate='label'
+					type='Df\Framework\Form\Element\Checkbox'
+					sortOrder='15'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Ask for the Billing Address?</label>
+					<backend_model>Df\Config\Backend\Checkbox</backend_model>
+					<comment><![CDATA[If <b>checked</b>, Magento will require the billing address. It it the default Magento behaviour.<br/>If <b>unchecked</b>, Magento will not require the billing address, and even will not ask for it.]]></comment>
+					<depends><field id='enable'>1</field></depends>
+				</field>
 			</group>
 		</section>
 	</system>
