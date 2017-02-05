@@ -132,10 +132,24 @@
 					</depends>
 				</field>
 				<field
+					id='webhook'
+					translate='label'
+					type='Df\Framework\Form\Element\Webhook'
+					dfWebhook_routePath='dfe-paymill'
+					sortOrder='9'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Webhook</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/2644' target='_blank'>set it in your Paymill account</a>]]></comment>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
 					id='currency'
 					translate='label'
 					type='Df\Directory\FormElement\Currency'
-					sortOrder='9'
+					sortOrder='10'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
