@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<config
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='urn:magento:module:Magento_Store:etc/config.xsd'
+>
+    <default>
+		<df_payment>
+			<paymill>
+				<currency>order</currency>
+				<title>Bank Card</title>
+				<title_backend>Paymill</title_backend>
+			</paymill>
+		</df_payment>
+    </default>
+</config>

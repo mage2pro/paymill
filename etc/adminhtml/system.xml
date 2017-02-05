@@ -37,6 +37,18 @@
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
 					<comment><![CDATA[Enable the «<a href='https://mage2.pro/c/extensions/paymill' target='_blank'>Paymill</a>» payment extension?]]></comment>
 				</field>
+				<field
+					id='currency'
+					translate='label'
+					type='Df\Directory\FormElement\Currency'
+					sortOrder='2'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Payment Currency</label>
+					<depends><field id='enable'>1</field></depends>
+				</field>
 			</group>
 		</section>
 	</system>
