@@ -6,12 +6,14 @@
     <default>
 		<df_payment>
 			<paymill>
+				<actionForNew>authorize_capture</actionForNew>
+				<actionForReturned>authorize_capture</actionForReturned>
+				<askForBillingAddress>1</askForBillingAddress>
 <!--
 2017-02-05
 Which payment currencies does Paymill support? https://mage2.pro/t/2637
 -->
 				<currency>EUR</currency>
-				<payment_action>authorize_capture</payment_action>
 <!--
 2017-02-05
 По умолчанию пусть будет Visa.
