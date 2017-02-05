@@ -66,26 +66,10 @@
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
-					id='testPublishableKey'
-					translate='label'
-					type='text'
-					sortOrder='4'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
-				>
-					<label>Public Test Key</label>
-					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/2642' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/2635' target='_blank'>How to create a test account?</a></li></ul>]]></comment>
-					<depends>
-						<field id='enable'>1</field>
-						<field id='test'>1</field>
-					</depends>
-				</field>
-				<field
 					id='testSecretKey'
 					translate='label'
 					type='obscure'
-					sortOrder='5'
+					sortOrder='4'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -99,26 +83,26 @@
 					</depends>
 				</field>
 				<field
-					id='livePublishableKey'
+					id='testPublishableKey'
 					translate='label'
 					type='text'
-					sortOrder='7'
+					sortOrder='5'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Public Live Key</label>
-					<comment><![CDATA[<a href='https://mage2.pro/t/2642' target='_blank'>Where are the API credentials located?</a>]]></comment>
+					<label>Public Test Key</label>
+					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/2642' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/2635' target='_blank'>How to create a test account?</a></li></ul>]]></comment>
 					<depends>
 						<field id='enable'>1</field>
-						<field id='test'>0</field>
+						<field id='test'>1</field>
 					</depends>
 				</field>
 				<field
 					id='liveSecretKey'
 					translate='label'
 					type='obscure'
-					sortOrder='8'
+					sortOrder='7'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -126,6 +110,22 @@
 					<label>Private Live Key</label>
 					<comment><![CDATA[<a href='https://mage2.pro/t/2642' target='_blank'>Where are the API credentials located?</a>]]></comment>
 					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>0</field>
+					</depends>
+				</field>
+				<field
+					id='livePublishableKey'
+					translate='label'
+					type='text'
+					sortOrder='8'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Public Live Key</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/2642' target='_blank'>Where are the API credentials located?</a>]]></comment>
 					<depends>
 						<field id='enable'>1</field>
 						<field id='test'>0</field>
