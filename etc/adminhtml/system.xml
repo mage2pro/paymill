@@ -99,6 +99,23 @@
 					</depends>
 				</field>
 				<field
+					id='test3DS'
+					translate='label'
+					type='Df\Framework\Form\Element\Checkbox'
+					sortOrder='6'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Test with the 3D Secure validation?</label>
+					<backend_model>Df\Config\Backend\Checkbox</backend_model>
+					<comment><![CDATA[]]></comment>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>1</field>
+					</depends>
+				</field>
+				<field
 					id='liveSecretKey'
 					translate='label'
 					type='obscure'
