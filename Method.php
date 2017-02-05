@@ -12,4 +12,14 @@ class Method extends \Df\StripeClone\Method {
 	 * @return array(string => string)
 	 */
 	final protected function apiCardInfo($charge) {return [];}
+
+	/**
+	 * 2017-02-05
+	 * @override
+	 * @see \Df\StripeClone\Method::scVoid()
+	 * @used-by \Df\StripeClone\Method::_refund()
+	 * @param string $chargeId
+	 * @return object
+	 */
+	final protected function scVoid($chargeId) {return null;}
 }
