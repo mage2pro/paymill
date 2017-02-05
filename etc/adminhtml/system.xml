@@ -52,10 +52,24 @@
 					<validate>required-entry</validate>
 				</field>
 				<field
+					id='test'
+					translate='label'
+					type='Df\Framework\Form\Element\Checkbox'
+					sortOrder='3'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Test Mode?</label>
+					<backend_model>Df\Config\Backend\Checkbox</backend_model>
+					<comment><![CDATA[<a href='https://mage2.pro/t/2639' target='_blank'>test cards</a>]]></comment>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
 					id='currency'
 					translate='label'
 					type='Df\Directory\FormElement\Currency'
-					sortOrder='3'
+					sortOrder='4'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
