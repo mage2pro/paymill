@@ -1,7 +1,7 @@
 <?php
+// 2017-02-05
 namespace Dfe\Paymill;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
-// 2017-02-05
 class Method extends \Df\StripeClone\Method {
 	/**
 	 * 2017-02-05
