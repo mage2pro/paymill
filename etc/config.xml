@@ -17,5 +17,10 @@
 				<title_backend>Paymill</title_backend>
 			</paymill>
 		</df_payment>
+        <payment>
+            <dfe_paymill>
+				<model>Dfe\Paymill\Method</model>
+            </dfe_paymill>
+        </payment>
     </default>
 </config>
