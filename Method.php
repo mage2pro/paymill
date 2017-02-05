@@ -57,6 +57,19 @@ class Method extends \Df\StripeClone\Method {
 	/**
 	 * 2017-02-05
 	 * @override
+	 * @see \Df\StripeClone\Method::scRefund()
+	 * @used-by \Df\StripeClone\Method::_refund()
+	 * @param string $chargeId
+	 * @param float|null $amount
+	 * В формате и валюте платёжной системы.
+	 * Значение готово для применения в запросе API.
+	 * @return object
+	 */
+	final protected function scRefund($chargeId, $amount) {return null;}
+
+	/**
+	 * 2017-02-05
+	 * @override
 	 * @see \Df\StripeClone\Method::scVoid()
 	 * @used-by \Df\StripeClone\Method::_refund()
 	 * @param string $chargeId
