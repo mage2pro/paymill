@@ -16,6 +16,16 @@ class Method extends \Df\StripeClone\Method {
 	/**
 	 * 2017-02-05
 	 * @override
+	 * @see \Df\StripeClone\Method::apiChargeCapturePreauthorized()
+	 * @used-by \Df\StripeClone\Method::charge()
+	 * @param string $chargeId
+	 * @return object
+	 */
+	final protected function apiChargeCapturePreauthorized($chargeId) {return null;}
+
+	/**
+	 * 2017-02-05
+	 * @override
 	 * @see \Df\StripeClone\Method::scVoid()
 	 * @used-by \Df\StripeClone\Method::_refund()
 	 * @param string $chargeId
