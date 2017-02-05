@@ -116,10 +116,46 @@
 					</depends>
 				</field>
 				<field
+					id='prefillWithout3DS'
+					translate='label'
+					type='select'
+					sortOrder='7'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Bank Card Number</label>
+					<source_model>Dfe\Paymill\Source\Prefill\Without3DS</source_model>
+					<comment><![CDATA[<a href='https://mage2.pro/t/2639' target='_blank'>The test bank cards </a>.]]></comment>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>1</field>
+						<field id='test3DS'>0</field>
+					</depends>
+				</field>
+				<field
+					id='prefillWith3DS'
+					translate='label'
+					type='select'
+					sortOrder='8'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Bank Card Number</label>
+					<source_model>Dfe\Paymill\Source\Prefill\With3DS</source_model>
+					<comment><![CDATA[<a href='https://mage2.pro/t/2639' target='_blank'>The test bank cards </a>.]]></comment>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>1</field>
+						<field id='test3DS'>1</field>
+					</depends>
+				</field>
+				<field
 					id='liveSecretKey'
 					translate='label'
 					type='obscure'
-					sortOrder='7'
+					sortOrder='9'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -136,7 +172,7 @@
 					id='livePublishableKey'
 					translate='label'
 					type='text'
-					sortOrder='8'
+					sortOrder='10'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -153,7 +189,7 @@
 					translate='label'
 					type='Df\Framework\Form\Element\Webhook'
 					dfWebhook_routePath='dfe-paymill'
-					sortOrder='9'
+					sortOrder='11'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -166,7 +202,7 @@
 					id='currency'
 					translate='label'
 					type='Df\Directory\FormElement\Currency'
-					sortOrder='10'
+					sortOrder='12'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'

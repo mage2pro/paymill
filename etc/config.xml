@@ -7,6 +7,12 @@
 		<df_payment>
 			<paymill>
 				<currency>order</currency>
+<!--
+2017-02-05
+По умолчанию пусть будет Visa.
+-->
+				<prefillWith3DS>4012888888881881</prefillWith3DS>
+				<prefillWithout3DS>4111111111111111</prefillWithout3DS>
 				<title>Bank Card</title>
 				<title_backend>Paymill</title_backend>
 			</paymill>
