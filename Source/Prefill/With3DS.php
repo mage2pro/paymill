@@ -9,8 +9,8 @@ final class With3DS extends \Df\Config\SourceT {
 	 * @used-by \Df\Config\Source::toOptionArray()
 	 * @return array(string => string)
 	 */
-	protected function map() {return [
+	protected function map() {return $this->addKeysToValues([
 		'4012888888881881' => 'Visa'
 		,'5169147129584558' => 'MasterCard'
-	];}
+	]);}
 }

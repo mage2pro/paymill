@@ -9,7 +9,7 @@ final class Without3DS extends \Df\Config\SourceT {
 	 * @used-by \Df\Config\Source::toOptionArray()
 	 * @return array(string => string)
 	 */
-	protected function map() {return [
+	protected function map() {return $this->addKeysToValues([
 		'4111111111111111' => 'Visa'
 		,'5500000000000004' => 'MasterCard'
 		,'340000000000009' => 'American Express'
@@ -18,5 +18,5 @@ final class Without3DS extends \Df\Config\SourceT {
 		,'4973010000000004' => 'Carte Bleue'
 		,'30000000000004' => 'Diners Club'
 		,'6011111111111117' => 'Discover'
-	];}
+	]);}
 }
