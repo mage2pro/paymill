@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Paymill;
+use Magento\Sales\Model\Order\Payment\Transaction as T;
 // 2017-02-05
 class Method extends \Df\StripeClone\Method {
 	/**
@@ -52,4 +53,14 @@ class Method extends \Df\StripeClone\Method {
 	 * @return object
 	 */
 	final protected function scVoid($chargeId) {return null;}
+
+	/**
+	 * 2017-02-05
+	 * @override
+	 * @see \Df\StripeClone\Method::transUrlBase()
+	 * @used-by \Df\StripeClone\Method::transUrl()
+	 * @param T $t
+	 * @return string
+	 */
+	final protected function transUrlBase(T $t) {return '';}
 }
