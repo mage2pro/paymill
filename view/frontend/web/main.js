@@ -43,7 +43,7 @@ define([
 						// https://blog.paymill.com/en/clarification-on-amount-int/#content-wrapper
 						amount_int: 4200
 						,cardholder: this.cardholder()
-						,currency: 'EUR'
+						,currency: this.paymentCurrency().code
 						,cvc: this.creditCardVerificationNumber()
 						,exp_month: this.creditCardExpMonth()
 						,exp_year: this.creditCardExpYear()
