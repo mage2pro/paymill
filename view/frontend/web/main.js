@@ -1,6 +1,6 @@
 // 2017-02-05
 define([
-	'Df_Payment/card', 'https://bridge.paymill.com/'
+	'Df_Payment/stripeClone', 'https://bridge.paymill.com/'
 ], function(parent) {'use strict'; return parent.extend({
 	// 2017-02-06
 	// Cardholder name is mandatory for PAYMILL Bridge:
@@ -22,7 +22,7 @@ define([
 		// 2017-02-07
 		// https://developers.paymill.com/guides/introduction/payment-form#1-collecting-credit-card-data
 		// https://developers.paymill.com/guides/introduction/getting-started#create-a-token
-		window.PAYMILL_PUBLIC_KEY = this.config('publicKey');
+		window.PAYMILL_PUBLIC_KEY = this.publicKey();
 		return this;
 	},
 	/**
