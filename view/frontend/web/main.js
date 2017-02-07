@@ -39,7 +39,6 @@ define([
 				this.placeOrderInternal();
 			}
 			else {
-				debugger;
 				// 2017-02-06
 				// https://developers.paymill.com/guides/reference/transactions#direct-tokenization
 				paymill.createToken(
@@ -76,9 +75,32 @@ define([
 					 */
 					function(error, response) {
 						debugger;
+						if (!error) {
+							_this.token = response.token;
+							//_this.placeOrderInternal();
+						}
+						else {
+							// 2016-11-12
+							// https://www.omise.co/omise-js-api#createtoken(type,-object,-callback)
+							_this.showErrorMessage(error.message);
+						}
 					}
 				);
 			}
 		}
-	}
+	},
+	/**
+	 * 2017-02-07
+	 * @override
+	 * @see https://github.com/mage2pro/core/blob/1.12.12/Payment/view/frontend/web/card.js?ts=4#L131-L139
+	 * @used-by https://github.com/mage2pro/core/blob/1.12.12/Payment/view/frontend/web/card.js?ts=4#L127
+	 */
+	prefillWithAFutureData: function() {
+		this._super();
+		if (this.config('errorCardNumber') === this.creditCardNumber()) {
+			// 2017-02-07
+			// https://developers.paymill.com/guides/reference/testing#how-do-i-test-credit-card-specific-error-codes-
+			this.creditCardExpYear(2020);
+		}
+	},
 });});

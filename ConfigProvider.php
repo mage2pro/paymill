@@ -1,4 +1,14 @@
 <?php
 // 2017-02-05
 namespace Dfe\Paymill;
-final class ConfigProvider extends \Df\StripeClone\ConfigProvider {}
+use Dfe\Paymill\Source\Prefill;
+final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
+	/**
+	 * 2016-11-12
+	 * @override
+	 * @see \Df\StripeClone\ConfigProvider::config()
+	 * @used-by \Df\Payment\ConfigProvider::getConfig()
+	 * @return array(string => mixed)
+	 */
+	protected function config() {return ['errorCardNumber' => Prefill::ERROR] + parent::config();}
+}

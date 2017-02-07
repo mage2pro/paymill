@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Paymill\Source\Prefill;
-final class Without3DS extends \Df\Config\SourceT {
+final class Without3DS extends \Dfe\Paymill\Source\Prefill {
 	/**
 	 * 2017-02-05
 	 * https://mage2.pro/t/2639
@@ -18,5 +18,6 @@ final class Without3DS extends \Df\Config\SourceT {
 		,'4973010000000004' => 'Carte Bleue'
 		,'30000000000004' => 'Diners Club'
 		,'6011111111111117' => 'Discover'
+		,self::ERROR => 'Error'
 	]);}
 }
