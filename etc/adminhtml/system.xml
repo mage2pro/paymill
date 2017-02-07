@@ -83,7 +83,7 @@
 					</depends>
 				</field>
 				<field
-					id='testPublishableKey'
+					id='testPublicKey'
 					translate='label'
 					type='text'
 					sortOrder='5'
@@ -169,7 +169,7 @@
 					</depends>
 				</field>
 				<field
-					id='livePublishableKey'
+					id='livePublicKey'
 					translate='label'
 					type='text'
 					sortOrder='10'

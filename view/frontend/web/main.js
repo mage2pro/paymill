@@ -19,6 +19,10 @@ define([
 	*/
 	initialize: function() {
 		this._super();
+		// 2017-02-07
+		// https://developers.paymill.com/guides/introduction/payment-form#1-collecting-credit-card-data
+		// https://developers.paymill.com/guides/introduction/getting-started#create-a-token
+		window.PAYMILL_PUBLIC_KEY = this.config('publicKey');
 		return this;
 	},
 	/**
