@@ -41,7 +41,11 @@ define([
 					{
 						// 2017-02-06
 						// https://blog.paymill.com/en/clarification-on-amount-int/#content-wrapper
-						amount_int: 4200
+						// 2017-02-07
+						// Whether all the Paymill-supported currencies are 2-decimal
+						// or some currencies are zero-decimal?
+						// https://mage2.pro/t/2675
+						amount_int: this.amountPI()
 						,cardholder: this.cardholder()
 						,currency: this.paymentCurrency().code
 						,cvc: this.creditCardVerificationNumber()
