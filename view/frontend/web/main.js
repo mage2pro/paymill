@@ -46,7 +46,7 @@ define([
 						// Whether all the Paymill-supported currencies are 2-decimal
 						// or some currencies are zero-decimal?
 						// https://mage2.pro/t/2675
-						amount_int: this.amountPI()
+						amount_int: this.amountF()
 						,cardholder: this.cardholder()
 						,currency: this.paymentCurrency().code
 						,cvc: this.creditCardVerificationNumber()
