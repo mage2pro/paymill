@@ -60,10 +60,21 @@ define([
 					},
 					/**
 					 * 2017-02-06
-					 * @param {Number} status
+					 * @param {?Object} error
+					 * При успешном получении токена error равно null.
 					 * @param {Object} response
+					 * Пример response при успешном получении токена:
+					 * {
+							bin: "401288"
+							,binCountry: "DE"
+							,brand: "VISA"
+							,ip: "80.147.111.188"
+							,ipCountry: ""
+							,last4Digits: "1881"
+							,token: "tok_48b61d2a802477e42dde2ad9874e"
+					 * }
 					 */
-					function(status, response) {
+					function(error, response) {
 						debugger;
 					}
 				);
