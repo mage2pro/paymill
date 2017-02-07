@@ -35,6 +35,7 @@ define([
 				this.placeOrderInternal();
 			}
 			else {
+				debugger;
 				// 2017-02-06
 				// https://developers.paymill.com/guides/reference/transactions#direct-tokenization
 				paymill.createToken(
