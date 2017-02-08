@@ -69,7 +69,9 @@ final class Method extends \Df\StripeClone\Method {
 	 * @param object $response
 	 * @return array(string => mixed)
 	 */
-	protected function responseToArray($response) {return [];}
+	protected function responseToArray($response) {return dfa_deep(
+		$this->req()->getLastResponse(), 'body/data'
+	);}
 
 	/**
 	 * 2017-02-05
