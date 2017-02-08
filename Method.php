@@ -61,6 +61,8 @@ final class Method extends \Df\StripeClone\Method {
 
 	/**
 	 * 2017-02-05
+	 * 2017-02-08
+	 * [Paymill][PHP SDK] How to get the last API response as an array? https://mage2.pro/t/2682
 	 * @override
 	 * @see \Df\StripeClone\Method::responseToArray()
 	 * @used-by \Df\StripeClone\Method::transInfo()
@@ -104,6 +106,21 @@ final class Method extends \Df\StripeClone\Method {
 
 	/**
 	 * 2017-02-08
+	 * Класс @see \Paymill\Models\Response\Payment не предоставляет нам доступа
+	 * ко всему ответу целиком, в виде массива:
+	 * https://github.com/paymill/paymill-php/blob/v4.4.1/lib/Paymill/Models/Response/Payment.php#L13
+	 *
+	 * Поэтому, чтобы получить ответ в виде массива, мы используем метод
+	 * @see \Paymill\Request::getLastResponse()
+	 * https://github.com/paymill/paymill-php/blob/v4.4.1/lib/Paymill/Request.php#L139-L146
+	 * А для этого нам нужно хранить объект - менеджеров запросов.
+	 * [Paymill][PHP SDK] How to get the last API response as an array? https://mage2.pro/t/2682
+	 *
+	 * Причём @see \Paymill\Request — это именно менеджер запросов, а не сам запрос.
+	 * Сам запрос имеет класс какого-либо из потомков @see \Paymill\Models\Response\Base:
+	 * например: @see \Paymill\Models\Response\Payment
+	 * Связь между ними показана в моём модульном тесте:
+	 * https://github.com/mage2pro/paymill/blob/0.1.8/T/Charge.php?ts=4#L14-L17
 	 * @return lRequest
 	 */
 	private function req() {return dfc($this, function() {return
