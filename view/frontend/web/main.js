@@ -72,6 +72,11 @@ define([
 							,last4Digits: "1881"
 							,token: "tok_48b61d2a802477e42dde2ad9874e"
 					 * }
+					 * 2017-02-08
+					 * [Paymill] The «paymill.createToken» call for the «5105105105105100» card
+					 * with the «07/2021» expiration data should fail in the test mode
+					 * according to the documentation, but it is not:
+					 * https://mage2.pro/t/2677
 					 */
 					function(error, response) {
 						debugger;
@@ -80,8 +85,8 @@ define([
 							//_this.placeOrderInternal();
 						}
 						else {
-							// 2016-11-12
-							// https://www.omise.co/omise-js-api#createtoken(type,-object,-callback)
+							// 2017-02-08
+							// https://developers.paymill.com/guides/reference/bridge#2-creating-a-token
 							_this.showErrorMessage(error.message);
 						}
 					}
