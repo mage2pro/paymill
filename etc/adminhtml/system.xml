@@ -66,7 +66,7 @@
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
-					id='testSecretKey'
+					id='testPrivateKey'
 					translate='label'
 					type='obscure'
 					sortOrder='4'
@@ -152,7 +152,7 @@
 					</depends>
 				</field>
 				<field
-					id='liveSecretKey'
+					id='livePrivateKey'
 					translate='label'
 					type='obscure'
 					sortOrder='9'
