@@ -1,6 +1,6 @@
 <?php
 // 2017-02-08
-namespace Dfe\Paymill;
+namespace Dfe\Paymill\T;
 class Token extends \Df\Core\TestCase {
 	/**
 	 * @test
