@@ -2,6 +2,10 @@
 // 2017-02-05
 namespace Dfe\Paymill;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
+use Paymill\Models\Request\Payment as lPayment;
+use Paymill\Models\Response\Base as lResponseBase;
+use Paymill\Models\Response\Payment as lResponsePayment;
+use Paymill\Request as lRequest;
 /** @method Settings s() */
 final class Method extends \Df\StripeClone\Method {
 	/**
@@ -97,4 +101,12 @@ final class Method extends \Df\StripeClone\Method {
 	 * @return string
 	 */
 	protected function transUrlBase(T $t) {return '';}
+
+	/**
+	 * 2017-02-08
+	 * @return lRequest
+	 */
+	private function req() {return dfc($this, function() {return
+		new lRequest($this->s()->privateKey())
+	;});}
 }

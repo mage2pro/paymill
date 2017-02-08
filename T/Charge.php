@@ -15,9 +15,7 @@ final class Charge extends TestCase {
 		$req = $this->r();
 		/** @var lResponseBase|lResponsePayment $resp */
 		$resp = $req->create((new lPayment)->setToken($this->token()));
-		echo df_json_encode_pretty([
-			'Response ID' => $resp->getId()
-			,'Response' => $req->getLastResponse()
-		]);
+		echo "Response ID: {$resp->getId()}\n";
+		echo "Response data:\n" . df_json_encode_pretty($req->getLastResponse());
 	}
 }
