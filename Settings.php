@@ -13,13 +13,6 @@ final class Settings extends \Df\StripeClone\Settings {
 	public function prefill() {return $this->v("prefill{$this->test3DS('With', 'Without')}3DS");}
 
 	/**
-	 * 2017-02-08
-	 * «Private Test Key»
-	 * @return string
-	 */
-	public function privateKey() {return $this->testableP();}
-
-	/**
 	 * 2017-02-07
 	 * «Test with the 3D Secure validation?»
 	 * Первый аргумент — для «да», второй — для «нет».
