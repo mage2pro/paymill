@@ -2,7 +2,14 @@
 // 2017-02-08
 namespace Dfe\Paymill\T;
 use Dfe\Paymill\Settings as S;
+use Paymill\Request as lRequest;
 abstract class TestCase extends \Df\Core\TestCase {
+	/**
+	 * 2017-02-08
+	 * @return lRequest
+	 */
+	final protected function r() {return new lRequest(S::s()->privateKey());}
+
 	/**
 	 * 2017-02-08
 	 * [Paymill] How to create a test token from the server side (for unit testing)?
