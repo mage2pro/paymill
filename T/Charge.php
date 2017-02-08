@@ -10,6 +10,9 @@ final class Charge extends TestCase {
 	 */
 	public function t01() {
 		$request = new \Paymill\Request(S::s()->privateKey());
-		echo $this->token();
+		$payment = new \Paymill\Models\Request\Payment();
+		$payment->setToken($this->token());
+		$response = $request->create($payment);
+		echo $response->getId();
 	}
 }
