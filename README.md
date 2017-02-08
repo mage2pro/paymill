@@ -1,6 +1,6 @@
 The extension integrates your Magento 2 store with the **[Paymill](https://www.paymill.com/)** payment service.
 
-![](https://mage2.pro/uploads/default/original/2X/b/be1d05a6c1d057b16e8d038bbf20e24ad698fbcb.png)
+![](https://mage2.pro/uploads/default/original/2X/5/502cf0b09c9a87764dd92b999ce2048b20b56277.png)
 
 ## Licensing
 It is a paid extension, not free.  
