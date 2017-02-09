@@ -58,10 +58,10 @@ final class Method extends \Df\StripeClone\Method {
 	 * @override
 	 * @see \Df\StripeClone\Method::apiChargeId()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param \Stripe\Charge $charge
+	 * @param lPayment $charge
 	 * @return string
 	 */
-	protected function apiChargeId($charge) {return '';}
+	protected function apiChargeId($charge) {return $charge->getId();}
 
 	/**
 	 * 2017-02-05
