@@ -1,6 +1,8 @@
 <?php
 // 2017-02-05
 namespace Dfe\Paymill;
+use Df\Sales\Model\Order\Payment as DfOP;
+use Magento\Sales\Model\Order\Payment as OP;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
 use Paymill\Models\Request\Payment as lPayment;
 use Paymill\Models\Response\Base as lResponseBase;
@@ -28,10 +30,30 @@ final class Method extends \Df\StripeClone\Method {
 	 * @override
 	 * @see \Df\StripeClone\Method::apiCardInfo()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param object $charge
+	 * @param lResponsePayment $charge
 	 * @return array(string => string)
 	 */
-	protected function apiCardInfo($charge) {return [];}
+	protected function apiCardInfo($charge) {return [
+		// 2017-02-09
+		// 2-символьный код: «DE»
+		DfOP::COUNTRY => $charge->getCountry()
+		,OP::CC_EXP_MONTH => $charge->getExpireMonth()
+		,OP::CC_EXP_YEAR => $charge->getExpireYear()
+		,OP::CC_LAST_4 => $charge->getLastFour()
+		,OP::CC_OWNER => $charge->getCardHolder()
+		// 2017-02-09
+		// https://developers.paymill.com/API/index#list-payments-
+		,OP::CC_TYPE => dftr($charge->getCardType(), [
+			'amex' => 'American Express'
+			,'diners' => 'Diners Club'
+			,'discover' => 'Discover'
+			,'jcb' => 'JCB'
+			,'maestro' => 'Maestro'
+			,'mastercard' => 'MasterCard'
+			,'unknown' => 'Unknown'
+			,'visa' => 'Visa'
+		])
+	];}
 
 	/**
 	 * 2017-02-05
@@ -58,7 +80,7 @@ final class Method extends \Df\StripeClone\Method {
 	 * @override
 	 * @see \Df\StripeClone\Method::apiChargeId()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param lPayment $charge
+	 * @param lResponsePayment $charge
 	 * @return string
 	 */
 	protected function apiChargeId($charge) {return $charge->getId();}
