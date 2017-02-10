@@ -32,4 +32,29 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @return string
 	 */
 	public function id($c) {return $c->getId();}
+
+	/**
+	 * 2017-02-10
+	 * Метод должен вернуть библиотечный объект API платёжной системы.
+	 * @override
+	 * @see \Df\StripeClone\Facade\Charge::refund()
+	 * @used-by \Df\StripeClone\Method::_refund()
+	 * @param string $id
+	 * @param float $amount
+	 * В формате и валюте платёжной системы.
+	 * Значение готово для применения в запросе API.
+	 * @return object
+	 */
+	public function refund($id, $amount) {return null;}
+
+	/**
+	 * 2017-02-10
+	 * Метод должен вернуть библиотечный объект API платёжной системы.
+	 * @override
+	 * @see \Df\StripeClone\Facade\Charge::void()
+	 * @used-by \Df\StripeClone\Method::_refund()
+	 * @param string $id
+	 * @return object
+	 */
+	public function void($id) {return null;}
 }
