@@ -4,8 +4,6 @@ namespace Dfe\Paymill;
 use Df\Sales\Model\Order\Payment as DfOP;
 use Magento\Sales\Model\Order\Payment as OP;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
-use Paymill\Models\Request\Payment as lPaymentReq;
-use Paymill\Models\Response\Base as lResponseBase;
 use Paymill\Models\Response\Payment as lPaymentResp;
 use Paymill\Request as lRequest;
 /** @method Settings s() */
@@ -61,16 +59,6 @@ final class Method extends \Df\StripeClone\Method {
 			,'visa' => 'Visa'
 		])
 	];}
-
-	/**
-	 * 2017-02-05
-	 * @override
-	 * @see \Df\StripeClone\Method::apiChargeId()
-	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param lPaymentResp $charge
-	 * @return string
-	 */
-	protected function apiChargeId($charge) {return $charge->getId();}
 
 	/**
 	 * 2017-02-05
