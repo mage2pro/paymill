@@ -31,37 +31,6 @@ final class Method extends \Df\StripeClone\Method {
 
 	/**
 	 * 2017-02-05
-	 * Информация о банковской карте.
-	 * @override
-	 * @see \Df\StripeClone\Method::apiCardInfo()
-	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param lPaymentResp $charge
-	 * @return array(string => string)
-	 */
-	protected function apiCardInfo($charge) {return [
-		// 2017-02-09
-		// 2-символьный код: «DE»
-		DfOP::COUNTRY => $charge->getCountry()
-		,OP::CC_EXP_MONTH => $charge->getExpireMonth()
-		,OP::CC_EXP_YEAR => $charge->getExpireYear()
-		,OP::CC_LAST_4 => $charge->getLastFour()
-		,OP::CC_OWNER => $charge->getCardHolder()
-		// 2017-02-09
-		// https://developers.paymill.com/API/index#list-payments-
-		,OP::CC_TYPE => dftr($charge->getCardType(), [
-			'amex' => 'American Express'
-			,'diners' => 'Diners Club'
-			,'discover' => 'Discover'
-			,'jcb' => 'JCB'
-			,'maestro' => 'Maestro'
-			,'mastercard' => 'MasterCard'
-			,'unknown' => 'Unknown'
-			,'visa' => 'Visa'
-		])
-	];}
-
-	/**
-	 * 2017-02-05
 	 * 2017-02-08
 	 * [Paymill][PHP SDK] How to get the last API response as an array? https://mage2.pro/t/2682
 	 * @override

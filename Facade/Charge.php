@@ -1,5 +1,7 @@
 <?php
 namespace Dfe\Paymill\Facade;
+use Df\Sales\Model\Order\Payment as DfOP;
+use Magento\Sales\Model\Order\Payment as OP;
 use Paymill\Models\Response\Payment as C;
 // 2017-02-10
 final class Charge extends \Df\StripeClone\Facade\Charge {
@@ -12,6 +14,37 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @return C
 	 */
 	public function capturePreauthorized($id) {return null;}
+
+	/**
+	 * 2017-02-11
+	 * Информация о банковской карте.
+	 * @override
+	 * @see \Df\StripeClone\Facade\Charge::card()
+	 * @used-by \Df\StripeClone\Method::chargeNew()
+	 * @param C $c
+	 * @return array(string => string)
+	 */
+	public function card($c) {return [
+		// 2017-02-09
+		// 2-символьный код: «DE»
+		DfOP::COUNTRY => $c->getCountry()
+		,OP::CC_EXP_MONTH => $c->getExpireMonth()
+		,OP::CC_EXP_YEAR => $c->getExpireYear()
+		,OP::CC_LAST_4 => $c->getLastFour()
+		,OP::CC_OWNER => $c->getCardHolder()
+		// 2017-02-09
+		// https://developers.paymill.com/API/index#list-payments-
+		,OP::CC_TYPE => dftr($c->getCardType(), [
+			'amex' => 'American Express'
+			,'diners' => 'Diners Club'
+			,'discover' => 'Discover'
+			,'jcb' => 'JCB'
+			,'maestro' => 'Maestro'
+			,'mastercard' => 'MasterCard'
+			,'unknown' => 'Unknown'
+			,'visa' => 'Visa'
+		])
+	];}
 
 	/**
 	 * 2017-02-10
