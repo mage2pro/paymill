@@ -13,7 +13,7 @@ final class Method extends \Df\StripeClone\Method {
 	/**
 	 * 2017-02-08
 	 * @override
-	 * Результат — в рублях, не в копейках.
+	 * The result should be in the basic monetary unit (like dollars), not in fractions (like cents).
 	 * I did not find such information on the Paymill website.
 	 * «Does Paymill have minimum and maximum amount limitations on a single payment?»
 	 * https://mage2.pro/t/2690
