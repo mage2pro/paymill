@@ -62,21 +62,6 @@ final class Method extends \Df\StripeClone\Method {
 
 	/**
 	 * 2017-02-05
-	 * Пока этот метод используется только в сценарии возврата.
-	 * Метод должен вернуть идентификатор операции (не платежа!) в платёжной системе.
-	 * Мы записываем его в БД и затем при обработке оповещений от платёжной системы
-	 * смотрим, не было ли это оповещение инициировано нашей же операцией,
-	 * и если было, то не обрабатываем его повторно.
-	 * @override
-	 * @see \Df\StripeClone\Method::apiTransId()
-	 * @used-by \Df\StripeClone\Method::_refund()
-	 * @param object $response
-	 * @return string
-	 */
-	protected function apiTransId($response) {return '';}
-
-	/**
-	 * 2017-02-05
 	 * 2017-02-08
 	 * [Paymill][PHP SDK] How to get the last API response as an array? https://mage2.pro/t/2682
 	 * @override
