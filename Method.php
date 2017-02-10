@@ -4,9 +4,9 @@ namespace Dfe\Paymill;
 use Df\Sales\Model\Order\Payment as DfOP;
 use Magento\Sales\Model\Order\Payment as OP;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
-use Paymill\Models\Request\Payment as lPayment;
+use Paymill\Models\Request\Payment as lPaymentReq;
 use Paymill\Models\Response\Base as lResponseBase;
-use Paymill\Models\Response\Payment as lResponsePayment;
+use Paymill\Models\Response\Payment as lPaymentResp;
 use Paymill\Request as lRequest;
 /** @method Settings s() */
 final class Method extends \Df\StripeClone\Method {
@@ -30,7 +30,7 @@ final class Method extends \Df\StripeClone\Method {
 	 * @override
 	 * @see \Df\StripeClone\Method::apiCardInfo()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param lResponsePayment $charge
+	 * @param lPaymentResp $charge
 	 * @return array(string => string)
 	 */
 	protected function apiCardInfo($charge) {return [
@@ -80,7 +80,7 @@ final class Method extends \Df\StripeClone\Method {
 	 * @override
 	 * @see \Df\StripeClone\Method::apiChargeId()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param lResponsePayment $charge
+	 * @param lPaymentResp $charge
 	 * @return string
 	 */
 	protected function apiChargeId($charge) {return $charge->getId();}
