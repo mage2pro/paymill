@@ -18,6 +18,13 @@ final class Method extends \Df\StripeClone\Method {
 	 * «Does Paymill have minimum and maximum amount limitations on a single payment?»
 	 * https://mage2.pro/t/2690
 	 * https://paymill.zendesk.com/hc/en-us/requests/129737
+	 *
+	 * 2017-02-10
+	 * I have got an answer from the Paymill support:
+	 * «Depending on the acquirer yes.
+	 * But this can be negotiated according your business model and risk possibilities.»
+	 * https://mage2.pro/t/2690/3
+	 *
 	 * @see \Df\Payment\Method::amountLimits()
 	 * @used-by \Df\Payment\Method::isAvailable()
 	 * @return null
