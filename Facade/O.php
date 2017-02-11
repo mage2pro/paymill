@@ -11,5 +11,5 @@ final class O extends \Df\StripeClone\Facade\O {
 	 * @param object $o
 	 * @return array(string => mixed)
 	 */
-	public function toArray($o) {return dfa_deep($this->m()->api()->getLastResponse(), 'body/data');}
+	function toArray($o) {return dfa_deep($this->m()->api()->getLastResponse(), 'body/data');}
 }

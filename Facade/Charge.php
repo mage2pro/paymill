@@ -13,7 +13,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param string $id
 	 * @return C
 	 */
-	public function capturePreauthorized($id) {return null;}
+	function capturePreauthorized($id) {return null;}
 
 	/**
 	 * 2017-02-10
@@ -23,7 +23,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param array(string => mixed) $p
 	 * @return C
 	 */
-	public function create(array $p) {return null;}
+	function create(array $p) {return null;}
 
 	/**
 	 * 2017-02-10
@@ -33,7 +33,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param C $c
 	 * @return string
 	 */
-	public function id($c) {return $c->getId();}
+	function id($c) {return $c->getId();}
 
 	/**
 	 * 2017-02-10
@@ -47,7 +47,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * Значение готово для применения в запросе API.
 	 * @return object
 	 */
-	public function refund($id, $amount) {return null;}
+	function refund($id, $amount) {return null;}
 
 	/**
 	 * 2017-02-10
@@ -58,7 +58,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param string $id
 	 * @return object
 	 */
-	public function void($id) {return null;}
+	function void($id) {return null;}
 
 	/**
 	 * 2017-02-11

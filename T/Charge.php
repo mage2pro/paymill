@@ -10,10 +10,10 @@ use Paymill\Models\Response\Transaction as oCharge;
 use Paymill\Request as lRequest;
 final class Charge extends TestCase {
 	/** @test */
-	public function t00() {}
+	function t00() {}
 
 	/** 2017-02-11 */
-	public function t01() {
+	function t01() {
 		/** @var lRequest $api */
 		$api = $this->api();
 		/** @var iCustomer $iCustomer */
@@ -41,7 +41,7 @@ final class Charge extends TestCase {
 	}
 
 	/** 2017-02-11 */
-	public function t02_ListAll() {echo "Response data:\n" . df_json_encode_pretty($this->ids());}
+	function t02_ListAll() {echo "Response data:\n" . df_json_encode_pretty($this->ids());}
 
 	/**
 	 * 2017-02-11

@@ -9,7 +9,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @used-by \Df\StripeClone\Facade\Card::create()
 	 * @param C|array(string => string) $c
 	 */
-	public function __construct($c) {$this->_c = is_object($c) ? $c : (new C)
+	function __construct($c) {$this->_c = is_object($c) ? $c : (new C)
 		->setCardHolder($c['card_holder'])
 		->setCardType($c['card_type'])
 		->setCountry($c['country'])
@@ -28,7 +28,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @used-by \Df\StripeClone\CardFormatter::label()
 	 * @return string
 	 */
-	public function brand() {return dftr($this->_c->getCardType(), [
+	function brand() {return dftr($this->_c->getCardType(), [
 		'amex' => 'American Express'
 		,'diners' => 'Diners Club'
 		,'discover' => 'Discover'
@@ -46,7 +46,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @used-by \Df\StripeClone\CardFormatter::country()
 	 * @return string
 	 */
-	public function country() {return $this->_c->getCountry();}
+	function country() {return $this->_c->getCountry();}
 
 	/**
 	 * 2017-02-11
@@ -56,7 +56,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @return string
 	 */
-	public function expMonth() {return $this->_c->getExpireMonth();}
+	function expMonth() {return $this->_c->getExpireMonth();}
 
 	/**
 	 * 2017-02-11
@@ -66,7 +66,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @return string
 	 */
-	public function expYear() {return $this->_c->getExpireYear();}
+	function expYear() {return $this->_c->getExpireYear();}
 
 	/**
 	 * 2017-02-11
@@ -76,7 +76,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @used-by \Df\StripeClone\Facade\Customer::cardIdForJustCreated()
 	 * @return string
 	 */
-	public function id() {return $this->_c->getId();}
+	function id() {return $this->_c->getId();}
 
 	/**
 	 * 2017-02-11
@@ -85,7 +85,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @return string
 	 */
-	public function owner() {return $this->_c->getCardHolder();}
+	function owner() {return $this->_c->getCardHolder();}
 
 	/**
 	 * 2017-02-11
@@ -95,7 +95,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @used-by \Df\StripeClone\CardFormatter::label()
 	 * @return string
 	 */
-	public function last4() {return $this->_c->getLastFour();}
+	function last4() {return $this->_c->getLastFour();}
 
 	/**
 	 * 2017-02-11

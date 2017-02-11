@@ -6,10 +6,10 @@ use Paymill\Models\Response\Payment as oCard;
 use Paymill\Request as API;
 final class Card extends TestCase {
 	/** @test 2017-02-08 */
-	public function t00() {}
+	function t00() {}
 
 	/** 2017-02-08 */
-	public function t01() {
+	function t01() {
 		/** @var API $api */
 		$api = $this->api();
 		/** @var oCard $oCard */

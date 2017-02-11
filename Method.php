@@ -28,7 +28,7 @@ final class Method extends \Df\StripeClone\Method {
 	 * @used-by \Dfe\Paymill\Facade\O::toArray()
 	 * @return API
 	 */
-	final public function api() {return dfc($this, function() {return
+	final function api() {return dfc($this, function() {return
 		new API($this->s()->privateKey())
 	;});}
 

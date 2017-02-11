@@ -15,5 +15,5 @@ final class Refund extends \Df\StripeClone\Facade\Refund {
 	 * @param object $r
 	 * @return string
 	 */
-	public function transId($r) {return '';}
+	function transId($r) {return '';}
 }

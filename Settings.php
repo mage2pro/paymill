@@ -10,7 +10,7 @@ final class Settings extends \Df\StripeClone\Settings {
 	 * @used-by \Df\Payment\ConfigProvider\BankCard::config()
 	 * @return string|null
 	 */
-	public function prefill() {return $this->v("prefill{$this->test3DS('With', 'Without')}3DS");}
+	function prefill() {return $this->v("prefill{$this->test3DS('With', 'Without')}3DS");}
 
 	/**
 	 * 2017-02-07
