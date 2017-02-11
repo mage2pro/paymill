@@ -5,15 +5,10 @@ use Paymill\Models\Request\Payment as lPaymentReq;
 use Paymill\Models\Response\Payment as lPaymentRes;
 use Paymill\Request as lRequest;
 final class Charge extends TestCase {
-	/**
-	 * @test
-	 * 2017-02-08
-	 */
+	/** @test 2017-02-08 */
 	public function t00() {}
 
-	/**
-	 * 2017-02-08
-	 */
+	/** 2017-02-08 */
 	public function t01() {
 		/** @var lRequest $api */
 		$api = $this->api();
