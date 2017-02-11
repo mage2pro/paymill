@@ -23,7 +23,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @used-by \Df\StripeClone\CardFormatter::label()
 	 * @return string
 	 */
-	public function brand() {return $this->_c->getCardType();}
+	public function brand() {return self::translateType($this->_c->getCardType());}
 
 	/**
 	 * 2017-02-11
@@ -71,4 +71,23 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * @var C
 	 */
 	private $_c;
+
+	/**
+	 * 2017-02-11
+	 * https://developers.paymill.com/API/index#list-payments-
+	 * @used-by brand()
+	 * @used-by \Dfe\Paymill\Facade\Charge::card()
+	 * @param string $type
+	 * @return string
+	 */
+	public static function translateType($type) {return dftr($type, [
+		'amex' => 'American Express'
+		,'diners' => 'Diners Club'
+		,'discover' => 'Discover'
+		,'jcb' => 'JCB'
+		,'maestro' => 'Maestro'
+		,'mastercard' => 'MasterCard'
+		,'unknown' => 'Unknown'
+		,'visa' => 'Visa'
+	]);}
 }

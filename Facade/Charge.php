@@ -33,18 +33,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 		,OP::CC_EXP_YEAR => $c->getExpireYear()
 		,OP::CC_LAST_4 => $c->getLastFour()
 		,OP::CC_OWNER => $c->getCardHolder()
-		// 2017-02-09
-		// https://developers.paymill.com/API/index#list-payments-
-		,OP::CC_TYPE => dftr($c->getCardType(), [
-			'amex' => 'American Express'
-			,'diners' => 'Diners Club'
-			,'discover' => 'Discover'
-			,'jcb' => 'JCB'
-			,'maestro' => 'Maestro'
-			,'mastercard' => 'MasterCard'
-			,'unknown' => 'Unknown'
-			,'visa' => 'Visa'
-		])
+		,OP::CC_TYPE => Card::translateType($c->getCardType())
 	];}
 
 	/**
