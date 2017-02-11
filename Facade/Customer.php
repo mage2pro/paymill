@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Paymill\Facade;
+use Paymill\Models\Request\Client as iCustomer;
 use Paymill\Models\Response\Client as C;
 // 2017-02-10
 /** @method \Dfe\Paymill\Method m() */
@@ -44,7 +45,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @param int $id
 	 * @return C
 	 */
-	public function get($id) {return null;}
+	public function get($id) {return $this->m()->api()->getOne((new iCustomer)->setId($id));}
 
 	/**
 	 * 2017-02-10
