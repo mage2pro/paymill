@@ -2,8 +2,9 @@
 // 2017-02-11
 namespace Dfe\Paymill\T;
 use Paymill\Models\Request\Client as iCustomer;
-use Paymill\Models\Response\Payment as oCard;
+use Paymill\Models\Request\Payment as iCard;
 use Paymill\Models\Response\Client as oCustomer;
+use Paymill\Models\Response\Payment as oCard;
 use Paymill\Request as API;
 final class Customer extends TestCase {
 	/** @test */
@@ -28,7 +29,7 @@ final class Customer extends TestCase {
 		$this->api()->delete((new iCustomer)->setId($id));
 	}, $this->ids());}
 
-	/** @test 2017-02-11 */
+	/** 2017-02-11 */
 	public function t03_GetById() {
 		/** @var API $api */
 		$api = $this->api();
@@ -58,6 +59,29 @@ final class Customer extends TestCase {
 		$iCustomer = new iCustomer;
 		$iCustomer->setId($id);
 		$api->getOne($iCustomer);
+	}
+
+	/** @test 2017-02-11 */
+	public function t05_AddCard() {
+		/** @var API $api */
+		$api = $this->api();
+		/** @var string $id */
+		$id = 'client_cbe81b8bf830d7bbbb60';
+		/** @var iCard $iCard */
+		$iCard = new iCard;
+		$iCard->setClient($id);
+		// 2017-02-11
+		// [Paymill] The test bank cards: https://mage2.pro/t/2639
+		$iCard->setToken($this->token('5500000000000004'));
+		/** @var oCard $oCard */
+		$oCard = $api->create($iCard);
+		$this->showLastResponse();
+		/** @var iCustomer $iCustomer */
+		$iCustomer = new iCustomer;
+		$iCustomer->setId($id);
+		/** @var oCustomer $oCustomer */
+		$oCustomer = $api->getOne($iCustomer);
+		$this->showLastResponse();
 	}
 
 	/**
