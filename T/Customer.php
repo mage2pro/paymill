@@ -2,8 +2,10 @@
 // 2017-02-11
 namespace Dfe\Paymill\T;
 use Paymill\Models\Request\Client as iCustomer;
+use Paymill\Models\Response\Payment as oCard;
 use Paymill\Models\Response\Client as oCustomer;
 use Paymill\Request as API;
+use Paymill\Services\PaymillException as lException;
 final class Customer extends TestCase {
 	/** @test */
 	public function t00() {}
@@ -27,7 +29,7 @@ final class Customer extends TestCase {
 		$this->api()->delete((new iCustomer)->setId($id));
 	}, $this->ids());}
 
-	/** @test 2017-02-11 */
+	/** 2017-02-11 */
 	public function t03_GetById() {
 		/** @var API $api */
 		$api = $this->api();
@@ -38,7 +40,25 @@ final class Customer extends TestCase {
 		$iCustomer->setId($id);
 		/** @var oCustomer $oCustomer */
 		$oCustomer = $api->getOne($iCustomer);
+		array_map(function(oCard $oCard) {
+			xdebug_break();
+		}, $oCustomer->getPayment());
 		$this->showLastResponse();
+	}
+
+	/**
+	 * @test 2017-02-11
+	 * @expectedException \Paymill\Services\PaymillException
+	 */
+	public function t04_GetNonExistent() {
+		/** @var API $api */
+		$api = $this->api();
+		/** @var string $id */
+		$id = 'client_NON_EXISTENT';
+		/** @var iCustomer $iCustomer */
+		$iCustomer = new iCustomer;
+		$iCustomer->setId($id);
+		$api->getOne($iCustomer);
 	}
 
 	/**
