@@ -25,16 +25,7 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * @return mixed
 	 */
 	protected function keyCardId() {return self::K_CARD;}
-
-	/**
-	 * 2017-02-11
-	 * @override
-	 * @see \Df\StripeClone\Charge::scRequest()
-	 * @used-by \Df\StripeClone\Charge::request()
-	 * @return array(string => mixed)
-	 */
-	protected function scRequest() {/** @var Settings $s */ $s = $this->ss(); return [];}
-
+	
 	/**
 	 * 2017-02-11
 	 * @used-by keyCardId()
