@@ -9,7 +9,10 @@ use Paymill\Models\Response\Payment as oCard;
 use Paymill\Models\Response\Transaction as oCharge;
 use Paymill\Request as lRequest;
 final class Charge extends TestCase {
-	/** @test 2017-02-11 */
+	/** @test */
+	public function t00() {}
+
+	/** 2017-02-11 */
 	public function t01() {
 		/** @var lRequest $api */
 		$api = $this->api();
@@ -34,7 +37,7 @@ final class Charge extends TestCase {
 		//$reqTrans->setToken($this->token());
 		/** @var oCharge $oCharge */
 		$oCharge = $api->create($iCharge);
-		echo "Response data:\n" . df_json_encode_pretty($api->getLastResponse());
+		$this->showLastResponse();
 	}
 
 	/** 2017-02-11 */

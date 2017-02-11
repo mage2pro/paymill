@@ -19,13 +19,27 @@ final class Customer extends TestCase {
 		/** @var oCustomer $oCustomer */
 		$oCustomer = $api->create($iCustomer);
 		echo "Response ID: {$oCustomer->getId()}\n";
-		echo "Response data:\n" . df_json_encode_pretty($api->getLastResponse());
+		$this->showLastResponse();
 	}
 
 	/** 2017-02-11 */
-	public function tDeleteAll() {array_map(function($id) {
+	public function t02_DeleteAll() {array_map(function($id) {
 		$this->api()->delete((new iCustomer)->setId($id));
 	}, $this->ids());}
+
+	/** @test 2017-02-11 */
+	public function t03_GetById() {
+		/** @var API $api */
+		$api = $this->api();
+		/** @var string $id */
+		$id = 'client_cbe81b8bf830d7bbbb60';
+		/** @var iCustomer $iCustomer */
+		$iCustomer = new iCustomer;
+		$iCustomer->setId($id);
+		/** @var oCustomer $oCustomer */
+		$oCustomer = $api->getOne($iCustomer);
+		$this->showLastResponse();
+	}
 
 	/**
 	 * 2017-02-11

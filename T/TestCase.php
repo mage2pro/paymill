@@ -8,7 +8,12 @@ abstract class TestCase extends \Df\Core\TestCase {
 	 * 2017-02-08
 	 * @return API
 	 */
-	final protected function api() {return new API(S::s()->privateKey());}
+	final protected function api() {return dfc($this, function() {return new API(S::s()->privateKey());});}
+
+	/** 2017-02-11 */
+	final protected function showLastResponse() {
+		echo "Response data:\n" . df_json_encode_pretty($this->api()->getLastResponse())
+	;}
 
 	/**
 	 * 2017-02-08

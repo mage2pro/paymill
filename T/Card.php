@@ -15,6 +15,6 @@ final class Card extends TestCase {
 		/** @var oCard $oCard */
 		$oCard = $api->create((new iCard)->setToken($this->token()));
 		echo "Response ID: {$oCard->getId()}\n";
-		echo "Response data:\n" . df_json_encode_pretty($api->getLastResponse());
+		$this->showLastResponse();
 	}
 }
