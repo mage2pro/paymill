@@ -61,7 +61,7 @@ final class Customer extends TestCase {
 		$api->getOne($iCustomer);
 	}
 
-	/** @test 2017-02-11 */
+	/** 2017-02-11 */
 	public function t05_AddCard() {
 		/** @var API $api */
 		$api = $this->api();

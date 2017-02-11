@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Paymill\Facade;
+use Dfe\Paymill\Charge;
 use Paymill\Models\Request\Client as iCustomer;
 use Paymill\Models\Request\Payment as iCard;
 use Paymill\Models\Response\Client as C;
@@ -19,10 +20,8 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @return string
 	 */
 	public function cardAdd($c, $token) {
-		/** @var API $api */
-		$api = $this->m()->api();
 		/** @var oCard $oCard */
-		$oCard = $api->create((new iCard)->setClient($c->getId())->setToken($token));
+		$oCard = $this->api()->create((new iCard)->setClient($c->getId())->setToken($token));
 		$c->setPayment(array_merge($c->getPayment(), [$oCard]));
 		return $oCard->getId();
 	}
@@ -48,7 +47,9 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @param array(string => mixed) $p
 	 * @return C
 	 */
-	public function create(array $p) {return null;}
+	public function create(array $p) {return $this->api()->create((new iCustomer)
+		->setEmail($p[Charge::C_EMAIL])->setDescription($p[Charge::C_DESCRIPTION])
+	);}
 
 	/**
 	 * 2017-02-10
@@ -60,7 +61,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @return C|null
 	 */
 	public function get($id) {
-		try {return $this->m()->api()->getOne((new iCustomer)->setId($id));}
+		try {return $this->api()->getOne((new iCustomer)->setId($id));}
 		catch (lException $e) {return null;}
 	}
 
@@ -73,4 +74,10 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @return string
 	 */
 	public function id($c) {return $c->getId();}
+
+	/**
+	 * 2017-02-11
+	 * @return API
+	 */
+	private function api() {return $this->m()->api();}
 }

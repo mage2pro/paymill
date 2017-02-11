@@ -32,6 +32,19 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * @return array(string => mixed)
 	 */
 	protected function customerParams() {return [
-		'description' => $this->customerName(), 'email' => $this->customerEmail()
+		self::C_DESCRIPTION => $this->customerName(), self::C_EMAIL => $this->customerEmail()
 	];}
+
+	/**
+	 * 2017-02-11
+	 * @used-by customerParams()
+	 * @used-by \Dfe\Paymill\Facade\Customer::create()
+	 */
+	const C_DESCRIPTION = 'description';
+	/**
+	 * 2017-02-11
+	 * @used-by customerParams()
+	 * @used-by \Dfe\Paymill\Facade\Customer::create()
+	 */
+	const C_EMAIL = 'email';
 }
