@@ -8,7 +8,7 @@ abstract class TestCase extends \Df\Core\TestCase {
 	 * 2017-02-08
 	 * @return lRequest
 	 */
-	final protected function r() {return new lRequest(S::s()->privateKey());}
+	final protected function api() {return new lRequest(S::s()->privateKey());}
 
 	/**
 	 * 2017-02-08
