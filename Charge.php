@@ -20,7 +20,7 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * Этот ключ передаётся как параметр при создании 2 разных объектов: charge и customer.
 	 * @override
 	 * @see \Df\StripeClone\Charge::keyCardId()
-	 * @used-by \Df\StripeClone\Charge::_request()
+	 * @used-by \Df\StripeClone\Charge::request()
 	 * @used-by \Df\StripeClone\Charge::newCard()
 	 * @return mixed
 	 */
@@ -30,7 +30,7 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * 2017-02-11
 	 * @override
 	 * @see \Df\StripeClone\Charge::scRequest()
-	 * @used-by \Df\StripeClone\Charge::_request()
+	 * @used-by \Df\StripeClone\Charge::request()
 	 * @return array(string => mixed)
 	 */
 	protected function scRequest() {/** @var Settings $s */ $s = $this->ss(); return [];}
