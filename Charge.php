@@ -17,20 +17,11 @@ final class Charge extends \Df\StripeClone\Charge {
 
 	/**
 	 * 2017-02-11
-	 * @override
-	 * @see \Df\StripeClone\Charge::customerParams()
-	 * @used-by \Df\StripeClone\Charge::newCard()
-	 * @return array(string => mixed)
-	 */
-	protected function customerParams() {return [
-		self::KC_DESCRIPTION => $this->customerName(), self::KC_EMAIL => $this->customerEmail()
-	];}
-
-	/**
-	 * 2017-02-11
+	 * Этот ключ передаётся как параметр при создании 2 разных объектов: charge и customer.
 	 * @override
 	 * @see \Df\StripeClone\Charge::keyCardId()
 	 * @used-by \Df\StripeClone\Charge::_request()
+	 * @used-by \Df\StripeClone\Charge::newCard()
 	 * @return mixed
 	 */
 	protected function keyCardId() {return self::K_CARD;}
@@ -49,17 +40,4 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * @used-by keyCardId()
 	 */
 	const K_CARD = 'card';
-
-	/**
-	 * 2017-02-11
-	 * @used-by customerParams()
-	 * @used-by \Dfe\Paymill\Facade\Customer::create()
-	 */
-	const KC_DESCRIPTION = 'description';
-	/**
-	 * 2017-02-11
-	 * @used-by customerParams()
-	 * @used-by \Dfe\Paymill\Facade\Customer::create()
-	 */
-	const KC_EMAIL = 'email';
 }
