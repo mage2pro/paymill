@@ -4,7 +4,7 @@ namespace Dfe\Paymill\T;
 use Paymill\Models\Request\Payment as iPayment;
 use Paymill\Models\Response\Payment as oPayment;
 use Paymill\Request as API;
-final class Charge extends TestCase {
+final class Payment extends TestCase {
 	/** @test 2017-02-08 */
 	public function t00() {}
 
