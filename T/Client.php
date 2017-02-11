@@ -20,7 +20,15 @@ final class Client extends TestCase {
 	}
 
 	/** @test 2017-02-11 */
-	public function t02() {echo "Response data:\n" . df_json_encode_pretty(
-		array_column($this->api()->getAll(new lClientReq), 'id')
-	);}
+	public function t02() {array_map(function($id) {
+		$this->api()->delete((new lClientReq)->setId($id));
+	}, $this->ids());}
+
+	/**
+	 * 2017-02-11
+	 * Возвращает не все записи, а только часть.
+	 * https://developers.paymill.com/API/index#list-clients-
+	 * @return string[]
+	 */
+	private function ids() {return array_column($this->api()->getAll(new lClientReq), 'id');}
 }
