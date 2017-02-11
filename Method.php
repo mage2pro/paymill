@@ -4,7 +4,7 @@ namespace Dfe\Paymill;
 use Df\Sales\Model\Order\Payment as DfOP;
 use Magento\Sales\Model\Order\Payment as OP;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
-use Paymill\Request as lRequest;
+use Paymill\Request as API;
 /** @method Settings s() */
 final class Method extends \Df\StripeClone\Method {
 	/**
@@ -26,10 +26,10 @@ final class Method extends \Df\StripeClone\Method {
 	 * https://github.com/mage2pro/paymill/blob/0.1.8/T/Charge.php?ts=4#L14-L17
 	 *
 	 * @used-by \Dfe\Paymill\Facade\O::toArray()
-	 * @return lRequest
+	 * @return API
 	 */
-	final public function req() {return dfc($this, function() {return
-		new lRequest($this->s()->privateKey())
+	final public function api() {return dfc($this, function() {return
+		new API($this->s()->privateKey())
 	;});}
 
 	/**

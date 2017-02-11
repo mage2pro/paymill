@@ -1,30 +1,30 @@
 <?php
 // 2017-02-11
 namespace Dfe\Paymill\T;
-use Paymill\Models\Request\Client as lClientReq;
-use Paymill\Models\Response\Client as lClientRes;
-use Paymill\Request as lRequest;
+use Paymill\Models\Request\Client as iClient;
+use Paymill\Models\Response\Client as oClient;
+use Paymill\Request as API;
 final class Client extends TestCase {
 	/** @test */
 	public function t00() {}
 
 	/** 2017-02-11 */
 	public function t01() {
-		/** @var lRequest $api */
+		/** @var API $api */
 		$api = $this->api();
-		/** @var lClientReq $req */
-		$req = new lClientReq;
-		$req->setEmail('admin@mage2.pro');
-		$req->setDescription('Дмитрий Федюк');
-		/** @var lClientRes $resp */
-		$resp = $api->create($req);
-		echo "Response ID: {$resp->getId()}\n";
+		/** @var iClient $iClient */
+		$iClient = new iClient;
+		$iClient->setEmail('admin@mage2.pro');
+		$iClient->setDescription('Дмитрий Федюк');
+		/** @var oClient $oClient */
+		$oClient = $api->create($iClient);
+		echo "Response ID: {$oClient->getId()}\n";
 		echo "Response data:\n" . df_json_encode_pretty($api->getLastResponse());
 	}
 
 	/** 2017-02-11 */
-	public function t02() {array_map(function($id) {
-		$this->api()->delete((new lClientReq)->setId($id));
+	public function tDeleteAll() {array_map(function($id) {
+		$this->api()->delete((new iClient)->setId($id));
 	}, $this->ids());}
 
 	/**
@@ -33,5 +33,5 @@ final class Client extends TestCase {
 	 * https://developers.paymill.com/API/index#list-clients-
 	 * @return string[]
 	 */
-	private function ids() {return array_column($this->api()->getAll(new lClientReq), 'id');}
+	private function ids() {return array_column($this->api()->getAll(new iClient), 'id');}
 }

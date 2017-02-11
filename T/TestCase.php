@@ -2,13 +2,13 @@
 // 2017-02-08
 namespace Dfe\Paymill\T;
 use Dfe\Paymill\Settings as S;
-use Paymill\Request as lRequest;
+use Paymill\Request as API;
 abstract class TestCase extends \Df\Core\TestCase {
 	/**
 	 * 2017-02-08
-	 * @return lRequest
+	 * @return API
 	 */
-	final protected function api() {return new lRequest(S::s()->privateKey());}
+	final protected function api() {return new API(S::s()->privateKey());}
 
 	/**
 	 * 2017-02-08
