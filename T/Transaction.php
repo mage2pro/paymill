@@ -2,14 +2,14 @@
 // 2017-02-11
 namespace Dfe\Paymill\T;
 use Paymill\Models\Request\Client as iClient;
-use Paymill\Models\Request\Payment as iPayment;
+use Paymill\Models\Request\Payment as iCard;
 use Paymill\Models\Request\Transaction as iTrans;
 use Paymill\Models\Response\Client as oClient;
-use Paymill\Models\Response\Payment as oPayment;
+use Paymill\Models\Response\Payment as oCard;
 use Paymill\Models\Response\Transaction as oTrans;
 use Paymill\Request as lRequest;
 final class Transaction extends TestCase {
-	/** 2017-02-11 */
+	/** @test 2017-02-11 */
 	public function t01() {
 		/** @var lRequest $api */
 		$api = $this->api();
@@ -19,11 +19,18 @@ final class Transaction extends TestCase {
 		$iClient->setDescription('Дмитрий Федюк');
 		/** @var oClient $oClient */
 		$oClient = $api->create($iClient);
+		/** @var iCard $iCard */
+		$iCard = new iCard;
+		$iCard->setClient($oClient->getId());
+		$iCard->setToken($this->token());
+		/** @var oCard $oCard */
+		$oCard = $api->create($iCard);
 		/** @var iTrans $iTrans */
 		$iTrans = new iTrans;
 		$iTrans->setAmount(100);
 		$iTrans->setClient($oClient->getId());
 		$iTrans->setCurrency('EUR');
+		$iTrans->setPayment($oCard->getId());
 		//$reqTrans->setToken($this->token());
 		/** @var oTrans $oTrans */
 		$oTrans = $api->create($iTrans);
