@@ -28,7 +28,7 @@ final class Customer extends TestCase {
 		$this->api()->delete((new iCustomer)->setId($id));
 	}, $this->ids());}
 
-	/** 2017-02-11 */
+	/** @test 2017-02-11 */
 	public function t03_GetById() {
 		/** @var API $api */
 		$api = $this->api();
@@ -46,7 +46,7 @@ final class Customer extends TestCase {
 	}
 
 	/**
-	 * @test 2017-02-11
+	 * 2017-02-11
 	 * @expectedException \Paymill\Services\PaymillException
 	 */
 	public function t04_GetNonExistent() {

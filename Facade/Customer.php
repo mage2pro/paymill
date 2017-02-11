@@ -2,6 +2,7 @@
 namespace Dfe\Paymill\Facade;
 use Paymill\Models\Request\Client as iCustomer;
 use Paymill\Models\Response\Client as C;
+use Paymill\Models\Response\Payment as oCard;
 use Paymill\Services\PaymillException as lException;
 // 2017-02-10
 /** @method \Dfe\Paymill\Method m() */
@@ -22,11 +23,13 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cards()
 	 * @used-by \Df\StripeClone\ConfigProvider::cards()
+	 * @used-by \Df\StripeClone\Facade\Customer::cardIdForJustCreated()
 	 * @param C $c
-	 * @return array(string => string)
-	 * [card ID => card label]
+	 * @return Card[]
 	 */
-	public function cards($c) {return [];}
+	public function cards($c) {return array_map(function(oCard $card) {return
+		new Card($card)
+	;}, $c->getPayment());}
 
 	/**
 	 * 2017-02-10
