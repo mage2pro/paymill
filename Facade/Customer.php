@@ -2,6 +2,7 @@
 namespace Dfe\Paymill\Facade;
 use Paymill\Models\Response\Client as C;
 // 2017-02-10
+/** @method \Dfe\Paymill\Method m() */
 final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
 	 * 2017-02-10

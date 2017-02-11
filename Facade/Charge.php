@@ -4,6 +4,7 @@ use Df\Sales\Model\Order\Payment as DfOP;
 use Magento\Sales\Model\Order\Payment as OP;
 use Paymill\Models\Response\Payment as C;
 // 2017-02-10
+/** @method \Dfe\Paymill\Method m() */
 final class Charge extends \Df\StripeClone\Facade\Charge {
 	/**
 	 * 2017-02-10

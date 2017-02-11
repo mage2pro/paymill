@@ -20,5 +20,7 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * @used-by \Df\StripeClone\Charge::newCard()
 	 * @return array(string => mixed)
 	 */
-	protected function customerParams() {return [];}
+	protected function customerParams() {return [
+		'description' => $this->customerName(), 'email' => $this->customerEmail()
+	];}
 }
