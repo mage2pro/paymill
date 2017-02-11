@@ -23,7 +23,7 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * @return array(string => mixed)
 	 */
 	protected function customerParams() {return [
-		self::C_DESCRIPTION => $this->customerName(), self::C_EMAIL => $this->customerEmail()
+		self::KC_DESCRIPTION => $this->customerName(), self::KC_EMAIL => $this->customerEmail()
 	];}
 
 	/**
@@ -33,16 +33,7 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * @used-by \Df\StripeClone\Charge::_request()
 	 * @return mixed
 	 */
-	protected function keyCardId() {return self::CARD;}
-
-	/**
-	 * 2017-02-11
-	 * @override
-	 * @see \Df\StripeClone\Charge::keyCustomerId()
-	 * @used-by \Df\StripeClone\Charge::_request()
-	 * @return mixed
-	 */
-	protected function keyCustomerId() {return self::CUSTOMER;}
+	protected function keyCardId() {return self::K_CARD;}
 
 	/**
 	 * 2017-02-11
@@ -55,26 +46,20 @@ final class Charge extends \Df\StripeClone\Charge {
 
 	/**
 	 * 2017-02-11
-	 * @used-by customerParams()
-	 * @used-by \Dfe\Paymill\Facade\Customer::create()
-	 */
-	const C_DESCRIPTION = 'description';
-	/**
-	 * 2017-02-11
-	 * @used-by customerParams()
-	 * @used-by \Dfe\Paymill\Facade\Customer::create()
-	 */
-	const C_EMAIL = 'email';
-
-	/**
-	 * 2017-02-11
 	 * @used-by keyCardId()
 	 */
-	const CARD = 'card';
+	const K_CARD = 'card';
 
 	/**
 	 * 2017-02-11
-	 * @used-by keyCustomerId()
+	 * @used-by customerParams()
+	 * @used-by \Dfe\Paymill\Facade\Customer::create()
 	 */
-	const CUSTOMER = 'customer';
+	const KC_DESCRIPTION = 'description';
+	/**
+	 * 2017-02-11
+	 * @used-by customerParams()
+	 * @used-by \Dfe\Paymill\Facade\Customer::create()
+	 */
+	const KC_EMAIL = 'email';
 }
