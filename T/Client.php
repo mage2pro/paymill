@@ -2,9 +2,12 @@
 // 2017-02-11
 namespace Dfe\Paymill\T;
 use Paymill\Models\Request\Client as lClientReq;
-use Paymill\Models\Response\Client as lClientResp;
+use Paymill\Models\Response\Client as lClientRes;
 use Paymill\Request as lRequest;
 final class Client extends TestCase {
+	/** @test */
+	public function t00() {}
+
 	/** 2017-02-11 */
 	public function t01() {
 		/** @var lRequest $api */
@@ -13,13 +16,13 @@ final class Client extends TestCase {
 		$req = new lClientReq;
 		$req->setEmail('admin@mage2.pro');
 		$req->setDescription('Дмитрий Федюк');
-		/** @var lClientResp $resp */
+		/** @var lClientRes $resp */
 		$resp = $api->create($req);
 		echo "Response ID: {$resp->getId()}\n";
 		echo "Response data:\n" . df_json_encode_pretty($api->getLastResponse());
 	}
 
-	/** @test 2017-02-11 */
+	/** 2017-02-11 */
 	public function t02() {array_map(function($id) {
 		$this->api()->delete((new lClientReq)->setId($id));
 	}, $this->ids());}
