@@ -59,16 +59,5 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @param C $c
 	 * @return string
 	 */
-	public function id($c) {return '';}
-
-	/**
-	 * 2017-02-10
-	 * @override
-	 * @see \Df\StripeClone\Facade\Customer::isDeleted()
-	 * @used-by \Df\StripeClone\Charge::newCard()
-	 * @used-by \Df\StripeClone\ConfigProvider::cards()
-	 * @param C $c
-	 * @return bool
-	 */
-	public function isDeleted($c) {return false;}
+	public function id($c) {return $c->getId();}
 }
