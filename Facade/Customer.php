@@ -1,8 +1,10 @@
 <?php
 namespace Dfe\Paymill\Facade;
 use Paymill\Models\Request\Client as iCustomer;
+use Paymill\Models\Request\Payment as iCard;
 use Paymill\Models\Response\Client as C;
 use Paymill\Models\Response\Payment as oCard;
+use Paymill\Request as API;
 use Paymill\Services\PaymillException as lException;
 // 2017-02-10
 /** @method \Dfe\Paymill\Method m() */
@@ -16,7 +18,14 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @param string $token
 	 * @return string
 	 */
-	public function cardAdd($c, $token) {return '';}
+	public function cardAdd($c, $token) {
+		/** @var API $api */
+		$api = $this->m()->api();
+		/** @var oCard $oCard */
+		$oCard = $api->create((new iCard)->setClient($c->getId())->setToken($token));
+		$c->setPayment(array_merge($c->getPayment(), [$oCard]));
+		return $oCard->getId();
+	}
 
 	/**
 	 * 2017-02-10
