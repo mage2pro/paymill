@@ -5,7 +5,6 @@ use Paymill\Models\Request\Client as iCustomer;
 use Paymill\Models\Response\Payment as oCard;
 use Paymill\Models\Response\Client as oCustomer;
 use Paymill\Request as API;
-use Paymill\Services\PaymillException as lException;
 final class Customer extends TestCase {
 	/** @test */
 	public function t00() {}

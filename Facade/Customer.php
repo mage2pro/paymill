@@ -2,6 +2,7 @@
 namespace Dfe\Paymill\Facade;
 use Paymill\Models\Request\Client as iCustomer;
 use Paymill\Models\Response\Client as C;
+use Paymill\Services\PaymillException as lException;
 // 2017-02-10
 /** @method \Dfe\Paymill\Method m() */
 final class Customer extends \Df\StripeClone\Facade\Customer {
@@ -43,9 +44,12 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @used-by \Df\StripeClone\Charge::newCard()
 	 * @used-by \Df\StripeClone\ConfigProvider::cards()
 	 * @param int $id
-	 * @return C
+	 * @return C|null
 	 */
-	public function get($id) {return $this->m()->api()->getOne((new iCustomer)->setId($id));}
+	public function get($id) {
+		try {return $this->m()->api()->getOne((new iCustomer)->setId($id));}
+		catch (lException $e) {return null;}
+	}
 
 	/**
 	 * 2017-02-10
