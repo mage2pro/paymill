@@ -29,19 +29,6 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
 	 * 2017-02-10
 	 * @override
-	 * @see \Df\StripeClone\Facade\Customer::cards()
-	 * @used-by \Df\StripeClone\ConfigProvider::cards()
-	 * @used-by \Df\StripeClone\Facade\Customer::cardIdForJustCreated()
-	 * @param C $c
-	 * @return Card[]
-	 */
-	public function cards($c) {return array_map(function(oCard $card) {return
-		new Card($card)
-	;}, $c->getPayment());}
-
-	/**
-	 * 2017-02-10
-	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::create()
 	 * @used-by \Df\StripeClone\Charge::newCard()
 	 * @param array(string => mixed) $p
@@ -74,6 +61,17 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @return string
 	 */
 	public function id($c) {return $c->getId();}
+
+	/**
+	 * 2017-02-11
+	 * @override
+	 * @see \Df\StripeClone\Facade\Customer::cardsData()
+	 * @used-by \Df\StripeClone\Facade\Customer::cards()
+	 * @param C $c
+	 * @return oCard[]
+	 * @see \Dfe\Paymill\Facade\Charge::cardData()
+	 */
+	protected function cardsData($c) {return $c->getPayment();}
 
 	/**
 	 * 2017-02-11

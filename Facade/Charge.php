@@ -1,8 +1,7 @@
 <?php
 namespace Dfe\Paymill\Facade;
-use Df\Sales\Model\Order\Payment as DfOP;
-use Magento\Sales\Model\Order\Payment as OP;
-use Paymill\Models\Response\Payment as C;
+use Paymill\Models\Response\Payment as oCard;
+use Paymill\Models\Response\Transaction as C;
 // 2017-02-10
 /** @method \Dfe\Paymill\Method m() */
 final class Charge extends \Df\StripeClone\Facade\Charge {
@@ -17,26 +16,6 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	public function capturePreauthorized($id) {return null;}
 
 	/**
-	 * 2017-02-11
-	 * Информация о банковской карте.
-	 * @override
-	 * @see \Df\StripeClone\Facade\Charge::card()
-	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param C $c
-	 * @return array(string => string)
-	 */
-	public function card($c) {return [
-		// 2017-02-09
-		// 2-символьный код: «DE»
-		DfOP::COUNTRY => $c->getCountry()
-		,OP::CC_EXP_MONTH => $c->getExpireMonth()
-		,OP::CC_EXP_YEAR => $c->getExpireYear()
-		,OP::CC_LAST_4 => $c->getLastFour()
-		,OP::CC_OWNER => $c->getCardHolder()
-		,OP::CC_TYPE => Card::translateType($c->getCardType())
-	];}
-
-	/**
 	 * 2017-02-10
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::create()
@@ -44,9 +23,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param array(string => mixed) $p
 	 * @return C
 	 */
-	public function create(array $p) {
-		return null;
-	}
+	public function create(array $p) {return null;}
 
 	/**
 	 * 2017-02-10
@@ -82,4 +59,16 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @return object
 	 */
 	public function void($id) {return null;}
+
+	/**
+	 * 2017-02-11
+	 * Информация о банковской карте.
+	 * @override
+	 * @see \Df\StripeClone\Facade\Charge::cardData()
+	 * @used-by \Df\StripeClone\Facade\Charge::card()
+	 * @param C $c
+	 * @return oCard
+	 * @see \Dfe\Paymill\Facade\Customer::cardsData()
+	 */
+	protected function cardData($c) {return $c->getPayment();}
 }
