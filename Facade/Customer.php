@@ -14,6 +14,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * 2017-02-10
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
+	 * @used-by create()
 	 * @used-by \Df\StripeClone\Charge::newCard()
 	 * @param C $c
 	 * @param string $token
@@ -38,13 +39,11 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @return C
 	 */
 	function create(array $p) {
-		/** @var API $api */
-		$api = $this->api();
 		/** @var C $result */
-		$result = $api->create((new iCustomer)
+		$result = $this->api()->create((new iCustomer)
 			->setEmail($p[_Charge::KC_EMAIL])->setDescription($p[_Charge::KC_DESCRIPTION])
 		);
-		$api->create((new iCard)->setClient($result->getId())->setToken($p[_Charge::K_CARD]));
+		$this->cardAdd($result, $p[_Charge::K_CARD]);
 		return $result;
 	}
 
