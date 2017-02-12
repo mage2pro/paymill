@@ -34,9 +34,16 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @param array(string => mixed) $p
 	 * @return C
 	 */
-	function create(array $p) {return $this->api()->create((new iCustomer)
-		->setEmail($p[_Charge::KC_EMAIL])->setDescription($p[_Charge::KC_DESCRIPTION])
-	);}
+	function create(array $p) {
+		/** @var API $api */
+		$api = $this->api();
+		/** @var C $result */
+		$result = $api->create((new iCustomer)
+			->setEmail($p[_Charge::KC_EMAIL])->setDescription($p[_Charge::KC_DESCRIPTION])
+		);
+		$api->create((new iCard)->setClient($result->getId())->setToken($p[_Charge::K_CARD]));
+		return $result;
+	}
 
 	/**
 	 * 2017-02-10

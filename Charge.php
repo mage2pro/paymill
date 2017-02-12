@@ -29,6 +29,7 @@ final class Charge extends \Df\StripeClone\Charge {
 	/**
 	 * 2017-02-11
 	 * @used-by keyCardId()
+	 * @used-by \Dfe\Paymill\Facade\Customer::create()
 	 */
 	const K_CARD = 'card';
 }
