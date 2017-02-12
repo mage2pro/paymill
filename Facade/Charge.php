@@ -40,14 +40,20 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @return oCharge|oAuth
 	 * Класс результата зависит от входного параметра capture.
 	 */
-	function create(array $p) {return $this->api()->create(
-		($p[_Charge::K_CAPTURE] ? new iCharge : new iAuth)
+	function create(array $p) {
+		// 2017-02-12
+		// Приходится заводить эту переменную, потому что иначе интерпретатор PHP даёт сбой:
+		// «syntax error, unexpected '->' (T_OBJECT_OPERATOR)».
+		$i = $p[_Charge::K_CAPTURE] ? new iCharge : new iAuth;
+		/** @var iCharge|iAuth $i */
+		return $this->api()->create($i
 			->setAmount($p[_Charge::K_AMOUNT])
 			->setDescription($p[_Charge::K_DESCRIPTION])
 			->setClient($p[_Charge::K_CUSTOMER])
 			->setCurrency($p[_Charge::K_CURRENCY])
 			->setPayment($p[_Charge::K_CARD])
-	);}
+		);
+	}
 
 	/**
 	 * 2017-02-10
