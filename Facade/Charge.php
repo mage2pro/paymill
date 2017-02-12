@@ -19,15 +19,13 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @return oCharge
 	 */
 	function capturePreauthorized($id) {
-		/** @var oAuth $oAuth */
-		$oAuth = $this->api()->getOne((new iAuth)->setId($id));
 		/** @var oCharge $oCharge */
-		$oCharge = $oAuth->getTransaction();
+		$oCharge = $this->load($id);
 		return $this->api()->create((new iCharge)
 			->setAmount($oCharge->getAmount())
 			->setDescription($oCharge->getDescription())
 			->setCurrency($oCharge->getCurrency())
-			->setPreauthorization($id)
+			->setPreauthorization($oCharge->getPreauthorization()->getId())
 		);
 	}
 
@@ -37,22 +35,25 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::create()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param array(string => mixed) $p
-	 * @return oCharge|oAuth
-	 * Класс результата зависит от входного параметра capture.
+	 * @return oCharge
 	 */
 	function create(array $p) {
+		/** @var bool $capture */
+		$capture = $p[_Charge::K_CAPTURE];
 		// 2017-02-12
 		// Приходится заводить эту переменную, потому что иначе интерпретатор PHP даёт сбой:
 		// «syntax error, unexpected '->' (T_OBJECT_OPERATOR)».
-		$i = $p[_Charge::K_CAPTURE] ? new iCharge : new iAuth;
 		/** @var iCharge|iAuth $i */
-		return $this->api()->create($i
+		$i = $capture ? new iCharge : new iAuth;
+		/** @var oCharge|oAuth $o */
+		$o = $this->api()->create($i
 			->setAmount($p[_Charge::K_AMOUNT])
 			->setDescription($p[_Charge::K_DESCRIPTION])
 			->setClient($p[_Charge::K_CUSTOMER])
 			->setCurrency($p[_Charge::K_CURRENCY])
 			->setPayment($p[_Charge::K_CARD])
 		);
+		return $capture ? $o : $o->getTransaction();
 	}
 
 	/**
@@ -60,7 +61,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::id()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param oCharge|oAuth $c
+	 * @param oCharge $c
 	 * @return string
 	 */
 	function id($c) {return $c->getId();}
@@ -95,17 +96,15 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	/**
 	 * 2017-02-10
 	 * Метод должен вернуть библиотечный объект API платёжной системы.
-	 * 2017-02-12
-	 * В отличие от других ПС, а данном случае $id — это идентификатор не charge,
-	 * а специального объекта preauthorization.
-	 * Пример: «preauth_4dfe6453fd15d1628a99».
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::void()
 	 * @used-by \Df\StripeClone\Method::_refund()
 	 * @param string $id
 	 * @return oAuth
 	 */
-	function void($id) {return $this->api()->delete((new iAuth)->setId($id));}
+	function void($id) {return $this->api()->delete(
+		(new iAuth)->setId($this->load($id)->getPreauthorization()->getId())
+	);}
 
 	/**
 	 * 2017-02-11
@@ -113,7 +112,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::cardData()
 	 * @used-by \Df\StripeClone\Facade\Charge::card()
-	 * @param oCharge|oAuth $c
+	 * @param oCharge $c
 	 * @return oCard
 	 * @see \Dfe\Paymill\Facade\Customer::cardsData()
 	 */
@@ -124,4 +123,13 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @return API
 	 */
 	private function api() {return $this->m()->api();}
+
+	/**
+	 * 2017-02-12
+	 * @used-by capturePreauthorized()
+	 * @used-by void()
+	 * @param string $id
+	 * @return oCharge
+	 */
+	private function load($id) {return $this->api()->getOne((new iCharge)->setId($id));}
 }
