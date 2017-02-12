@@ -4,6 +4,9 @@ The extension integrates your Magento 2 store with the **[Paymill](https://www.p
 
 ![](https://mage2.pro/uploads/default/original/2X/0/08287f77e94626e8720c7ed9b6fa684a133573f3.png)
 
+### Settings
+![](https://mage2.pro/uploads/default/original/2X/c/cb381083de2b229fcf749b0d980f1ab548309c86.png)
+
 ## Licensing
 It is a paid extension, not free.  
 You can use it for free for the testing puproses only.  
