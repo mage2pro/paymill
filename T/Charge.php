@@ -12,7 +12,7 @@ final class Charge extends TestCase {
 	/** @test */
 	function t00() {}
 
-	/** @test 2017-02-11 */
+	/** 2017-02-11 */
 	function t01() {
 		/** @var lRequest $api */
 		$api = $this->api();
