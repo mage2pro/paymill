@@ -11,7 +11,10 @@ use Paymill\Models\Response\Transaction as oCharge;
 use Paymill\Request as lRequest;
 // 2017-02-12
 final class Auth extends TestCase {
-	/** 2017-02-12 */
+	/**
+	 * 2017-02-12
+	 * [Paymill] An example of a preauthorization response: https://mage2.pro/t/2731
+	 */
 	function t01() {
 		/** @var iAuth $iAuth */
 		$iAuth = new iAuth;
@@ -21,8 +24,6 @@ final class Auth extends TestCase {
 		/** @var oAuth $oAuth */
 		$oAuth = $this->api()->create($iAuth);
 		$this->showLastResponse();
-		// [Paymill] An example of preauthorization response
-		// https://mage2.pro/t/2731
 	}
 
 	/** @test 2017-02-12 */

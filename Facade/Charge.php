@@ -26,14 +26,16 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::create()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param array(string => mixed) $p
-	 * @return C
+	 * @return C|oAuth
+	 * Класс результата зависит от входного параметра capture.
 	 */
-	function create(array $p) {return $this->api()->create((new iCharge)
-		->setAmount($p[_Charge::K_AMOUNT])
-		->setDescription($p[_Charge::K_DESCRIPTION])
-		->setClient($p[_Charge::K_CUSTOMER])
-		->setCurrency($p[_Charge::K_CURRENCY])
-		->setPayment($p[_Charge::K_CARD])
+	function create(array $p) {return $this->api()->create(
+		($p[_Charge::K_CAPTURE] ? new iCharge : new iAuth)
+			->setAmount($p[_Charge::K_AMOUNT])
+			->setDescription($p[_Charge::K_DESCRIPTION])
+			->setClient($p[_Charge::K_CUSTOMER])
+			->setCurrency($p[_Charge::K_CURRENCY])
+			->setPayment($p[_Charge::K_CARD])
 	);}
 
 	/**
