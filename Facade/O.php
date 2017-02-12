@@ -5,6 +5,8 @@ namespace Dfe\Paymill\Facade;
 final class O extends \Df\StripeClone\Facade\O {
 	/**
 	 * 2017-02-11
+	 * An example of Paymill response: https://mage2.pro/t/2682
+	 * @see \Dfe\Paymill\ResponseRecord::keyCard()
 	 * @override
 	 * @see \Df\StripeClone\Facade\O::toArray()
 	 * @used-by \Df\StripeClone\Method::transInfo()
