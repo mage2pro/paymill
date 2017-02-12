@@ -1,7 +1,10 @@
 <?php
 namespace Dfe\Paymill\Facade;
+use Dfe\Paymill\Charge as _Charge;
+use Paymill\Models\Request\Transaction as iCharge;
 use Paymill\Models\Response\Payment as oCard;
 use Paymill\Models\Response\Transaction as C;
+use Paymill\Request as API;
 // 2017-02-10
 /** @method \Dfe\Paymill\Method m() */
 final class Charge extends \Df\StripeClone\Facade\Charge {
@@ -23,9 +26,13 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param array(string => mixed) $p
 	 * @return C
 	 */
-	function create(array $p) {
-		return null;
-	}
+	function create(array $p) {return $this->api()->create((new iCharge)
+		->setAmount($p[_Charge::K_AMOUNT])
+		->setDescription($p[_Charge::K_DESCRIPTION])
+		->setClient($p[_Charge::K_CUSTOMER])
+		->setCurrency($p[_Charge::K_CURRENCY])
+		->setPayment($p[_Charge::K_CARD])
+	);}
 
 	/**
 	 * 2017-02-10
@@ -73,4 +80,10 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Dfe\Paymill\Facade\Customer::cardsData()
 	 */
 	protected function cardData($c) {return $c->getPayment();}
+
+	/**
+	 * 2017-02-11
+	 * @return API
+	 */
+	private function api() {return $this->m()->api();}
 }
