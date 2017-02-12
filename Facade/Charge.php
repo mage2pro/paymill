@@ -2,9 +2,11 @@
 namespace Dfe\Paymill\Facade;
 use Dfe\Paymill\Charge as _Charge;
 use Paymill\Models\Request\Preauthorization as iAuth;
+use Paymill\Models\Request\Refund as iRefund;
 use Paymill\Models\Request\Transaction as iCharge;
 use Paymill\Models\Response\Payment as oCard;
 use Paymill\Models\Response\Preauthorization as oAuth;
+use Paymill\Models\Response\Refund as oRefund;
 use Paymill\Models\Response\Transaction as oCharge;
 use Paymill\Request as API;
 // 2017-02-10
@@ -92,9 +94,11 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param float $amount
 	 * В формате и валюте платёжной системы.
 	 * Значение готово для применения в запросе API.
-	 * @return object
+	 * @return oRefund
 	 */
-	function refund($id, $amount) {return null;}
+	function refund($id, $amount) {return $this->api()->create(
+		(new iRefund)->setAmount($amount)->setId($id)
+	);}
 
 	/**
 	 * 2017-02-10
