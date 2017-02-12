@@ -1,6 +1,8 @@
 The extension integrates your Magento 2 store with the **[Paymill](https://www.paymill.com/)** payment service.
 
-![](https://mage2.pro/uploads/default/original/2X/5/502cf0b09c9a87764dd92b999ce2048b20b56277.png)
+![](https://mage2.pro/uploads/default/original/2X/2/2f9eabe9c2420606e9316cea917f9210876fce7e.png)
+
+![](https://mage2.pro/uploads/default/original/2X/0/08287f77e94626e8720c7ed9b6fa684a133573f3.png)
 
 ## Licensing
 It is a paid extension, not free.  
@@ -8,9 +10,7 @@ You can use it for free for the testing puproses only.
 Please read the [testing policy](https://mage2.pro/t/topic/2590) before installation.
 
 ## How to buy
-
-The extension is not released yet, so there is no way to buy it just now.  
-The extension will be released before 2017-02-12.   
+You can buy it with PayPal [here](https://mage2.pro/t/2633). 
 
 ## Installation
 ### Free installation service
