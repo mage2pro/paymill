@@ -1,8 +1,10 @@
 <?php
 namespace Dfe\Paymill\Facade;
 use Dfe\Paymill\Charge as _Charge;
+use Paymill\Models\Request\Preauthorization as iAuth;
 use Paymill\Models\Request\Transaction as iCharge;
 use Paymill\Models\Response\Payment as oCard;
+use Paymill\Models\Response\Preauthorization as oAuth;
 use Paymill\Models\Response\Transaction as C;
 use Paymill\Request as API;
 // 2017-02-10
@@ -74,13 +76,17 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	/**
 	 * 2017-02-10
 	 * Метод должен вернуть библиотечный объект API платёжной системы.
+	 * 2017-02-12
+	 * В отличие от других ПС, а данном случае $id — это идентификатор не charge,
+	 * а специального объекта preauthorization.
+	 * Пример: «preauth_4dfe6453fd15d1628a99».
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::void()
 	 * @used-by \Df\StripeClone\Method::_refund()
 	 * @param string $id
-	 * @return object
+	 * @return oAuth
 	 */
-	function void($id) {return null;}
+	function void($id) {return $this->api()->delete((new iAuth)->setId($id));}
 
 	/**
 	 * 2017-02-11
