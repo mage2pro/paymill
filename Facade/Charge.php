@@ -45,6 +45,19 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	function id($c) {return $c->getId();}
 
 	/**
+	 * 2017-02-12
+	 * Returns the path to the bank card information
+	 * in a charge converted to an array by @see \Dfe\Paymill\Facade\O::toArray()
+	 * https://developers.paymill.com/API/index#create-new-transaction-
+	 * An example of Paymill response: https://mage2.pro/t/2682
+	 * @override
+	 * @see \Df\StripeClone\Facade\Charge::pathToCard()
+	 * @used-by \Df\StripeClone\Block\Info::prepare()
+	 * @return string
+	 */
+	function pathToCard() {return 'payment';}
+
+	/**
 	 * 2017-02-10
 	 * Метод должен вернуть библиотечный объект API платёжной системы.
 	 * @override
