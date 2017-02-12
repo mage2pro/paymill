@@ -1,11 +1,8 @@
 The extension integrates your Magento 2 store with the **[Paymill](https://www.paymill.com/)** payment service.
 
-![](https://mage2.pro/uploads/default/original/2X/2/2f9eabe9c2420606e9316cea917f9210876fce7e.png)
+## Demo videos
 
-![](https://mage2.pro/uploads/default/original/2X/0/08287f77e94626e8720c7ed9b6fa684a133573f3.png)
-
-### Settings
-![](https://mage2.pro/uploads/default/original/2X/c/cb381083de2b229fcf749b0d980f1ab548309c86.png)
+1. [**Capture** a card payment](https://mage2.pro/t/topic/2732).
 
 ## Licensing
 It is a paid extension, not free.  
@@ -63,3 +60,12 @@ I provide a [custom payment gateway integration service](https://mage2.pro/t/917
 ## Want to get the full rights for my extension?
 It is possible: the price depends on a extension and starts from $5.000.  
 You will get 2 years of support, updates, and free installation service for all your clients.
+
+## Screenshots
+### 1. Frontend. The payment form
+![](https://mage2.pro/uploads/default/original/2X/2/2f9eabe9c2420606e9316cea917f9210876fce7e.png)
+
+![](https://mage2.pro/uploads/default/original/2X/0/08287f77e94626e8720c7ed9b6fa684a133573f3.png)
+
+### 2. Backend. The extension's settings
+![](https://mage2.pro/uploads/default/original/2X/c/cb381083de2b229fcf749b0d980f1ab548309c86.png)
