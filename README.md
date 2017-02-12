@@ -3,6 +3,7 @@ The extension integrates your Magento 2 store with the **[Paymill](https://www.p
 ## Demo videos
 
 1. [**Capture** a card payment](https://mage2.pro/t/topic/2732).
+2. [**Authorize** a card payment, and **capture** it from the **Magento** side](https://mage2.pro/t/topic/2733).
 
 ## Licensing
 It is a paid extension, not free.  
