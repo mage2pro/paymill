@@ -53,7 +53,10 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 			->setCurrency($p[_Charge::K_CURRENCY])
 			->setPayment($p[_Charge::K_CARD])
 		);
-		return $capture ? $o : $o->getTransaction();
+		// 2017-02-12
+		// Если $capture == false, то нужно явно инициализировать свойство payment,
+		// иначе оно будет содержать не объект (банковскую карту), а лишь идентификатор этого объекта.
+		return $capture ? $o : $o->getTransaction()->setPayment($o->getPayment());
 	}
 
 	/**
