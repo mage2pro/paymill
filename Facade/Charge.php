@@ -18,7 +18,18 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param string $id
 	 * @return oCharge
 	 */
-	function capturePreauthorized($id) {return null;}
+	function capturePreauthorized($id) {
+		/** @var oAuth $oAuth */
+		$oAuth = $this->api()->getOne((new iAuth)->setId($id));
+		/** @var oCharge $oCharge */
+		$oCharge = $oAuth->getTransaction();
+		return $this->api()->create((new iCharge)
+			->setAmount($oCharge->getAmount())
+			->setDescription($oCharge->getDescription())
+			->setCurrency($oCharge->getCurrency())
+			->setPreauthorization($id)
+		);
+	}
 
 	/**
 	 * 2017-02-10
