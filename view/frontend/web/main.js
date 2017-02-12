@@ -79,10 +79,9 @@ define([
 					 * https://mage2.pro/t/2677
 					 */
 					function(error, response) {
-						debugger;
 						if (!error) {
 							_this.token = response.token;
-							//_this.placeOrderInternal();
+							_this.placeOrderInternal();
 						}
 						else {
 							// 2017-02-08
