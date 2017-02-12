@@ -43,7 +43,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::id()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param oCharge $c
+	 * @param oCharge|oAuth $c
 	 * @return string
 	 */
 	function id($c) {return $c->getId();}
@@ -96,7 +96,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::cardData()
 	 * @used-by \Df\StripeClone\Facade\Charge::card()
-	 * @param oCharge $c
+	 * @param oCharge|oAuth $c
 	 * @return oCard
 	 * @see \Dfe\Paymill\Facade\Customer::cardsData()
 	 */
