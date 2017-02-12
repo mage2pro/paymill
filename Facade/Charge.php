@@ -5,7 +5,7 @@ use Paymill\Models\Request\Preauthorization as iAuth;
 use Paymill\Models\Request\Transaction as iCharge;
 use Paymill\Models\Response\Payment as oCard;
 use Paymill\Models\Response\Preauthorization as oAuth;
-use Paymill\Models\Response\Transaction as C;
+use Paymill\Models\Response\Transaction as oCharge;
 use Paymill\Request as API;
 // 2017-02-10
 /** @method \Dfe\Paymill\Method m() */
@@ -16,7 +16,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::capturePreauthorized()
 	 * @used-by \Df\StripeClone\Method::charge()
 	 * @param string $id
-	 * @return C
+	 * @return oCharge
 	 */
 	function capturePreauthorized($id) {return null;}
 
@@ -26,7 +26,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::create()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param array(string => mixed) $p
-	 * @return C|oAuth
+	 * @return oCharge|oAuth
 	 * Класс результата зависит от входного параметра capture.
 	 */
 	function create(array $p) {return $this->api()->create(
@@ -43,7 +43,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::id()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
-	 * @param C $c
+	 * @param oCharge $c
 	 * @return string
 	 */
 	function id($c) {return $c->getId();}
@@ -96,7 +96,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::cardData()
 	 * @used-by \Df\StripeClone\Facade\Charge::card()
-	 * @param C $c
+	 * @param oCharge $c
 	 * @return oCard
 	 * @see \Dfe\Paymill\Facade\Customer::cardsData()
 	 */
