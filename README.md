@@ -6,6 +6,7 @@ The extension integrates your Magento 2 store with the **[Paymill](https://www.p
 2. [**Authorize** a card payment, and **capture** it from the **Magento** side](https://mage2.pro/t/topic/2733).
 3. [**Authorize** a card payment, and **void** it from the **Magento** side](https://mage2.pro/t/topic/2737).
 4. [Partial and multiple **refunds** from the **Magento** side](https://mage2.pro/t/topic/2739).
+5. [**Capture** a card payment with the **3D Secure** verification](https://mage2.pro/t/topic/2740).
 
 ## Licensing
 It is a paid extension, not free.  
