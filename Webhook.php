@@ -1,7 +1,10 @@
 <?php
 namespace Dfe\Paymill;
-// 2017-02-14
-// «Which events does Paymill send to a store?» https://mage2.pro/t/2744
+/**
+ * 2017-02-14
+ * «Which events does Paymill send to a store?» https://mage2.pro/t/2744
+ * @see \Dfe\Paymill\Webhook\Transaction\Succeeded
+ */
 abstract class Webhook extends \Df\StripeClone\Webhook {
 	/**
 	 * 2017-02-14
