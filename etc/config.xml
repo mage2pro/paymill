@@ -8,7 +8,7 @@
 			<paymill>
 				<actionForNew>authorize_capture</actionForNew>
 				<actionForReturned>authorize_capture</actionForReturned>
-				<askForBillingAddress>1</askForBillingAddress>
+				<requireBillingAddress>1</requireBillingAddress>
 <!--
 2017-02-05
 Which payment currencies does Paymill support? https://mage2.pro/t/2637
