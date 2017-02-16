@@ -1,6 +1,6 @@
 // 2017-02-05
 define([
-	'Df_Payment/stripeClone', 'https://bridge.paymill.com/'
+	'Df_StripeClone/main', 'https://bridge.paymill.com/'
 ], function(parent) {'use strict'; return parent.extend({
 	// 2017-02-06
 	// Cardholder name is mandatory for PAYMILL Bridge:
