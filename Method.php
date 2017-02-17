@@ -25,7 +25,10 @@ final class Method extends \Df\StripeClone\Method {
 	 * Связь между ними показана в моём модульном тесте:
 	 * https://github.com/mage2pro/paymill/blob/0.1.8/T/Charge.php?ts=4#L14-L17
 	 *
+	 * @used-by \Dfe\Paymill\Facade\Charge::api()
+	 * @used-by \Dfe\Paymill\Facade\Customer::api()
 	 * @used-by \Dfe\Paymill\Facade\O::toArray()
+	 *
 	 * @return API
 	 */
 	final function api() {return dfc($this, function() {return
