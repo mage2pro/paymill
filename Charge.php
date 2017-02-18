@@ -11,7 +11,7 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Charge::cardIdPrefix()
 	 * @used-by \Df\StripeClone\Charge::usePreviousCard()
-	 * @return mixed
+	 * @return string
 	 */
 	protected function cardIdPrefix() {return 'pay';}
 
@@ -22,9 +22,19 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * @see \Df\StripeClone\Charge::keyCardId()
 	 * @used-by \Df\StripeClone\Charge::request()
 	 * @used-by \Df\StripeClone\Charge::newCard()
-	 * @return mixed
+	 * @return string
 	 */
 	protected function keyCardId() {return self::K_CARD;}
+
+	/**
+	 * 2017-02-18
+	 * Does Paymill support dynamic statement descriptors? https://mage2.pro/t/2823
+	 * @override
+	 * @see \Df\StripeClone\Charge::keyDSD()
+	 * @used-by \Df\StripeClone\Charge::request()
+	 * @return string
+	 */
+	protected function keyDSD() {return null;}
 	
 	/**
 	 * 2017-02-11
