@@ -24,26 +24,26 @@ final class Charge extends \Df\StripeClone\Charge {
 	 * 2) в запросе на сохранение банковской карты для будущего повторного использования
 	 * У Paymill название этого параметра для обоих запросов совпадает.
 	 * @override
-	 * @see \Df\StripeClone\Charge::keyCardId()
+	 * @see \Df\StripeClone\Charge::k_CardId()
 	 * @used-by \Df\StripeClone\Charge::request()
 	 * @used-by \Df\StripeClone\Charge::newCard()
 	 * @return string
 	 */
-	protected function keyCardId() {return self::K_CARD;}
+	protected function k_CardId() {return self::K_CARD;}
 
 	/**
 	 * 2017-02-18
 	 * Does Paymill support dynamic statement descriptors? https://mage2.pro/t/2823
 	 * @override
-	 * @see \Df\StripeClone\Charge::keyDSD()
+	 * @see \Df\StripeClone\Charge::k_DSD()
 	 * @used-by \Df\StripeClone\Charge::request()
 	 * @return string
 	 */
-	protected function keyDSD() {return null;}
+	protected function k_DSD() {return null;}
 	
 	/**
 	 * 2017-02-11
-	 * @used-by keyCardId()
+	 * @used-by k_CardId()
 	 * @used-by \Dfe\Paymill\Facade\Charge::create()
 	 * @used-by \Dfe\Paymill\Facade\Customer::create()
 	 */
