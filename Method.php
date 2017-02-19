@@ -31,7 +31,7 @@ final class Method extends \Df\StripeClone\Method {
 	 *
 	 * @return API
 	 */
-	final function api() {return dfc($this, function() {return
+	function api() {return dfc($this, function() {return
 		new API($this->s()->privateKey())
 	;});}
 
