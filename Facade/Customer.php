@@ -13,6 +13,16 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
 	 * 2017-02-10
 	 * @override
+	 * @see \Df\StripeClone\Facade\Customer::_get()
+	 * @used-by \Df\StripeClone\Facade\Customer::get()
+	 * @param int $id
+	 * @return C|null
+	 */
+	function _get($id) {return $this->api()->getOne((new iCustomer)->setId($id));}
+
+	/**
+	 * 2017-02-10
+	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
 	 * @used-by create()
 	 * @used-by \Df\StripeClone\Charge::newCard()
@@ -45,20 +55,6 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 		);
 		$this->cardAdd($result, $p[_Charge::K_CARD]);
 		return $result;
-	}
-
-	/**
-	 * 2017-02-10
-	 * @override
-	 * @see \Df\StripeClone\Facade\Customer::get()
-	 * @used-by \Df\StripeClone\Charge::newCard()
-	 * @used-by \Df\StripeClone\ConfigProvider::cards()
-	 * @param int $id
-	 * @return C|null
-	 */
-	function get($id) {
-		try {return $this->api()->getOne((new iCustomer)->setId($id));}
-		catch (lException $e) {return null;}
 	}
 
 	/**
