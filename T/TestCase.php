@@ -1,14 +1,14 @@
 <?php
-// 2017-02-08
 namespace Dfe\Paymill\T;
-use Dfe\Paymill\Settings as S;
 use Paymill\Request as API;
+// 2017-02-08
+/** @method \Dfe\Paymill\Settings s() */
 abstract class TestCase extends \Df\Core\TestCase {
 	/**
 	 * 2017-02-08
 	 * @return API
 	 */
-	final protected function api() {return dfc($this, function() {return new API(S::s()->privateKey());});}
+	final protected function api() {return dfc($this, function() {return new API($this->s()->privateKey());});}
 
 	/** 2017-02-11 */
 	final protected function showLastResponse() {
@@ -30,7 +30,7 @@ abstract class TestCase extends \Df\Core\TestCase {
 			,'account_expiry_year' => date('Y', strtotime('+1 year'))
 			,'account_holder' => 'DMITRY FEDYUK'
 			,'account_number' => $number
-			,'channel_id' => S::s()->publicKey()
+			,'channel_id' => $this->s()->publicKey()
 			,'transaction_mode' => 'CONNECTOR_TEST'
 		]), 'transaction/identification/uniqueId')
 	;}
