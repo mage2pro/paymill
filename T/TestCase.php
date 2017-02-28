@@ -1,8 +1,14 @@
 <?php
 namespace Dfe\Paymill\T;
 use Paymill\Request as API;
-// 2017-02-08
-/** @method \Dfe\Paymill\Settings s() */
+/**
+ * 2017-02-08
+ * @see \Dfe\Paymill\T\Auth
+ * @see \Dfe\Paymill\T\Card
+ * @see \Dfe\Paymill\T\Charge
+ * @see \Dfe\Paymill\T\Customer
+ * @method \Dfe\Paymill\Settings s()
+ */
 abstract class TestCase extends \Df\Core\TestCase {
 	/**
 	 * 2017-02-08

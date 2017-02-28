@@ -1,14 +1,7 @@
 <?php
 namespace Dfe\Paymill\T;
-use Paymill\Models\Request\Client as iCustomer;
-use Paymill\Models\Request\Payment as iCard;
 use Paymill\Models\Request\Preauthorization as iAuth;
-use Paymill\Models\Request\Transaction as iCharge;
-use Paymill\Models\Response\Client as oCustomer;
-use Paymill\Models\Response\Payment as oCard;
 use Paymill\Models\Response\Preauthorization as oAuth;
-use Paymill\Models\Response\Transaction as oCharge;
-use Paymill\Request as lRequest;
 // 2017-02-12
 final class Auth extends TestCase {
 	/**
