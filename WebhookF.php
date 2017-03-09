@@ -1,7 +1,7 @@
 <?php
 // 2017-02-14
 namespace Dfe\Paymill;
-final class WebhookF extends \Df\StripeClone\WebhookF {
+final class WebhookF extends \Df\Payment\WebhookF\Json {
 	/**             
 	 * 2017-02-14
 	 * [Paymill] An example of the «transaction.created» event (being sent to a webhook)
