@@ -1,7 +1,6 @@
 <?php
 namespace Dfe\Paymill\W\Handler\Refund;
 use Df\StripeClone\W\Strategy\Charge\Refunded as Strategy;
-use Dfe\Paymill\Method as M;
 // 2017-02-14
 // Оповещение «refund.succeeded» приходит
 // при выполнении операции «refund» из административного интерфейса Paymill.
@@ -13,20 +12,10 @@ final class Succeeded extends \Dfe\Paymill\W\Handler implements \Df\StripeClone\
 	 * В валюте заказа (платежа), в формате платёжной системы (копейках).
 	 * @override
 	 * @see \Df\StripeClone\W\IRefund::amount()
-	 * @used-by \Df\StripeClone\W\Strategy\Charge\Refunded::handle()
+	 * @used-by \Df\StripeClone\W\Strategy\Charge\Refunded::_handle()
 	 * @return int
 	 */
-	function amount() {return $this->ro('amount');}
-
-	/**
-	 * 2017-02-14
-	 * @override
-	 * @see \Df\StripeClone\W\Handler::currentTransactionType()
-	 * @used-by \Df\StripeClone\W\Handler::id()
-	 * @used-by \Df\StripeClone\W\Strategy::currentTransactionType()
-	 * @return string
-	 */
-	function currentTransactionType() {return M::T_REFUND;}
+	function amount() {return $this->e()->ro('amount');}
 
 	/**
 	 * 2017-02-14
@@ -38,37 +27,10 @@ final class Succeeded extends \Dfe\Paymill\W\Handler implements \Df\StripeClone\
 	 * Пример результата: «refund_2c9cd9a13357f2454522»
 	 * @override
 	 * @see \Df\StripeClone\W\IRefund::eTransId()
-	 * @used-by \Df\StripeClone\W\Strategy\Charge\Refunded::handle()
+	 * @used-by \Df\StripeClone\W\Strategy\Charge\Refunded::_handle()
 	 * @return string
 	 */
-	function eTransId() {return $this->ro('id');}
-
-	/**
-	 * 2017-02-14
-	 * @override
-	 * @see \Df\StripeClone\W\Handler::idBase()
-	 * @used-by \Df\StripeClone\W\Handler::id()
-	 * @return string
-	 */
-	protected function idBase() {return $this->ro('id');}
-
-	/**
-	 * 2017-02-14
-	 * @override
-	 * @see \Df\StripeClone\W\Handler::parentIdRawKeySuffix()
-	 * @used-by \Df\StripeClone\W\Handler::parentIdRawKey()
-	 * @return string
-	 */
-	protected function parentIdRawKeySuffix() {return 'transaction/id';}
-
-	/**
-	 * 2017-02-14
-	 * @override
-	 * @see \Df\StripeClone\W\Handler::parentTransactionType()
-	 * @used-by \Df\StripeClone\W\Handler::adaptParentId()
-	 * @return string
-	 */
-	protected function parentTransactionType() {return M::T_CAPTURE;}
+	function eTransId() {return $this->e()->ro('id');}
 
 	/**
 	 * 2017-02-14

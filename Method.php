@@ -1,10 +1,9 @@
 <?php
-// 2017-02-05
 namespace Dfe\Paymill;
-use Df\Sales\Model\Order\Payment as DfOP;
 use Magento\Sales\Model\Order\Payment as OP;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
 use Paymill\Request as API;
+// 2017-02-05
 /** @method Settings s() */
 final class Method extends \Df\StripeClone\Method {
 	/**
@@ -31,9 +30,7 @@ final class Method extends \Df\StripeClone\Method {
 	 *
 	 * @return API
 	 */
-	function api() {return dfc($this, function() {return
-		new API($this->s()->privateKey())
-	;});}
+	function api() {return dfc($this, function() {return new API($this->s()->privateKey());});}
 
 	/**
 	 * 2017-02-08

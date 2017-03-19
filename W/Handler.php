@@ -6,13 +6,4 @@ namespace Dfe\Paymill\W;
  * @see \Dfe\Paymill\W\Handler\Refund\Succeeded
  * @see \Dfe\Paymill\W\Handler\Transaction\Succeeded
  */
-abstract class Handler extends \Df\StripeClone\W\Handler {
-	/**
-	 * 2017-02-14
-	 * @override
-	 * @see \Df\StripeClone\W\Handler::roPath()
-	 * @used-by \Df\StripeClone\W\Handler::ro()
-	 * @return string
-	 */
-	final protected function roPath() {return 'event/event_resource';}
-}
+abstract class Handler extends \Df\StripeClone\W\Handler {}
