@@ -5,7 +5,7 @@ use Df\StripeClone\W\Strategy\Charge\Captured as Strategy;
 // Оповещение «transaction.succeeded» приходит
 // при выполнении операции «capture» из административного интерфейса Paymill.
 // An example of this event: https://mage2.pro/t/2749
-final class Succeeded extends \Dfe\Paymill\W\Handler {
+final class Succeeded extends \Df\StripeClone\W\Handler {
 	/**
 	 * 2017-02-14
 	 * @override

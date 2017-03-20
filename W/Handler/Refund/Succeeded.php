@@ -6,7 +6,7 @@ use Df\StripeClone\W\Strategy\Charge\Refunded as Strategy;
 // при выполнении операции «refund» из административного интерфейса Paymill.
 // https://www.omise.co/api-webhooks#refund-events
 // An example of this event: https://mage2.pro/t/2750
-final class Succeeded extends \Dfe\Paymill\W\Handler implements \Df\StripeClone\W\IRefund {
+final class Succeeded extends \Df\StripeClone\W\Handler implements \Df\StripeClone\W\IRefund {
 	/**
 	 * 2017-02-14
 	 * В валюте заказа (платежа), в формате платёжной системы (копейках).
