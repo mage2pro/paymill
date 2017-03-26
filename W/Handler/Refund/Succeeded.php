@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Paymill\W\Handler\Refund;
-use \Df\StripeClone\W\Strategy\Refund as Strategy;
+use Df\StripeClone\W\Strategy\Refund as Strategy;
 // 2017-02-14
 // Оповещение «refund.succeeded» приходит
 // при выполнении операции «refund» из административного интерфейса Paymill.
