@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Paymill\W\Handler\Refund;
-use \Df\StripeClone\W\Strategy\Refunded as Strategy;
+use \Df\StripeClone\W\Strategy\Refund as Strategy;
 // 2017-02-14
 // Оповещение «refund.succeeded» приходит
 // при выполнении операции «refund» из административного интерфейса Paymill.
@@ -12,7 +12,7 @@ final class Succeeded extends \Df\StripeClone\W\Handler implements \Df\StripeClo
 	 * В валюте заказа (платежа), в формате платёжной системы (копейках).
 	 * @override
 	 * @see \Df\StripeClone\W\IRefund::amount()
-	 * @used-by \Df\StripeClone\W\Strategy\Refunded::_handle()
+	 * @used-by \Df\StripeClone\W\Strategy\Refund::_handle()
 	 * @return int
 	 */
 	function amount() {return $this->e()->ro('amount');}
@@ -27,7 +27,7 @@ final class Succeeded extends \Df\StripeClone\W\Handler implements \Df\StripeClo
 	 * Пример результата: «refund_2c9cd9a13357f2454522»
 	 * @override
 	 * @see \Df\StripeClone\W\IRefund::eTransId()
-	 * @used-by \Df\StripeClone\W\Strategy\Refunded::_handle()
+	 * @used-by \Df\StripeClone\W\Strategy\Refund::_handle()
 	 * @return string
 	 */
 	function eTransId() {return $this->e()->ro('id');}
