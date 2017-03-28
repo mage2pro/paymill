@@ -5,7 +5,7 @@ namespace Dfe\Paymill\Source;
  * @see \Dfe\Paymill\Source\Prefill\With3DS
  * @see \Dfe\Paymill\Source\Prefill\Without3DS
  */
-abstract class Prefill extends \Df\Config\SourceT {
+abstract class Prefill extends \Df\Config\Source {
 	/**
 	 * 2017-02-07
 	 * https://developers.paymill.com/guides/reference/testing#how-do-i-test-credit-card-specific-error-codes-

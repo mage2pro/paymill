@@ -9,7 +9,7 @@ final class Without3DS extends \Dfe\Paymill\Source\Prefill {
 	 * @used-by \Df\Config\Source::toOptionArray()
 	 * @return array(string => string)
 	 */
-	protected function map() {return $this->addKeysToValues([
+	protected function map() {return self::addKeysToValues([
 		'4111111111111111' => 'Visa'
 		,'5500000000000004' => 'MasterCard'
 		,'340000000000009' => 'American Express'
