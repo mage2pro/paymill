@@ -18,15 +18,15 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::capturePreauthorized()
 	 * @used-by \Df\StripeClone\Method::charge()
 	 * @param string $id
-	 * @param int|float $amount В формате и валюте ПС. Значение готово для применения в запросе API.
+	 * @param int|float $a В формате и валюте ПС. Значение готово для применения в запросе API.
 	 * @return oCharge
 	 */
-	function capturePreauthorized($id, $amount) {
+	function capturePreauthorized($id, $a) {
 		/** @var oCharge $oCharge */
 		$oCharge = $this->load($id);
 		return $this->api()->create((new iCharge)
 			// 2019-02-19
-			// Для перестраховки от конверсионных погрешностей не используем $amount.
+			// Для перестраховки от конверсионных погрешностей не используем $a.
 			->setAmount($oCharge->getAmount())
 			->setDescription($oCharge->getDescription())
 			->setCurrency($oCharge->getCurrency())
@@ -94,14 +94,12 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::refund()
 	 * @used-by \Df\StripeClone\Method::_refund()
 	 * @param string $id
-	 * @param float $amount
+	 * @param float $a
 	 * В формате и валюте платёжной системы.
 	 * Значение готово для применения в запросе API.
 	 * @return oRefund
 	 */
-	function refund($id, $amount) {return $this->api()->create(
-		(new iRefund)->setAmount($amount)->setId($id)
-	);}
+	function refund($id, $a) {return $this->api()->create((new iRefund)->setAmount($a)->setId($id));}
 
 	/**
 	 * 2017-02-10
