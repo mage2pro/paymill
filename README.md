@@ -2,12 +2,12 @@ The extension integrates your Magento 2 store with the **[Paymill](https://www.p
 
 ## Demo videos
 
-1. [**Capture** a card payment](https://mage2.pro/t/topic/2732).
-2. [**Authorize** a card payment, and **capture** it from the **Magento** side](https://mage2.pro/t/topic/2733).
-3. [**Authorize** a card payment, and **void** it from the **Magento** side](https://mage2.pro/t/topic/2737).
-4. [Partial and multiple **refunds** from the **Magento** side](https://mage2.pro/t/topic/2739).
-5. [**Capture** a card payment with the **3D Secure** verification](https://mage2.pro/t/topic/2740).
-6. [Capture and refund a card payment from the **Paymill** side (using a **webhook**)](https://mage2.pro/t/topic/2752).
+1. [**Capture** a card payment](https://mage2.pro/t/2732).
+2. [**Authorize** a card payment, and **capture** it from the **Magento** side](https://mage2.pro/t/2733).
+3. [**Authorize** a card payment, and **void** it from the **Magento** side](https://mage2.pro/t/2737).
+4. [Partial and multiple **refunds** from the **Magento** side](https://mage2.pro/t/2739).
+5. [**Capture** a card payment with the **3D Secure** verification](https://mage2.pro/t/2740).
+6. [Capture and refund a card payment from the **Paymill** side (using a **webhook**)](https://mage2.pro/t/2752).
 
 ## How to buy
 You can buy it with PayPal [here](https://mage2.pro/t/2633).  
@@ -33,7 +33,7 @@ Please read the [testing policy](https://mage2.pro/t/2590) before installation.
 ## Support
 - [The extension's **forum** branch](https://mage2.pro/c/extensions/paymill).
 - [Where and how to report a Mage2.PRO extension's issue?](https://mage2.pro/t/2034)
-- I also provide a **[generic Magento 2 support](https://mage2.pro/t/topic/755)** and [Magento 2 installation service](https://mage2.pro/t/748).
+- I also provide a **[generic Magento 2 support](https://mage2.pro/t/755)** and [Magento 2 installation service](https://mage2.pro/t/748).
 
 ## Want to be notified about the extension's updates?
 - [Subscribe](https://mage2.pro/t/2540) to the extension's [forum branch](https://mage2.pro/c/extensions/paymill).
