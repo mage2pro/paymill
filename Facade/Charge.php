@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Paymill\Facade;
-use Dfe\Paymill\Charge as _Charge;
+use Dfe\Paymill\P\Charge as _Charge;
 use Paymill\Models\Request\Preauthorization as iAuth;
 use Paymill\Models\Request\Refund as iRefund;
 use Paymill\Models\Request\Transaction as iCharge;

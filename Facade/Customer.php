@@ -1,12 +1,12 @@
 <?php
 namespace Dfe\Paymill\Facade;
-use Dfe\Paymill\Charge as _Charge;
+use Df\StripeClone\P\Reg;
+use Dfe\Paymill\P\Charge as _Charge;
 use Paymill\Models\Request\Client as iCustomer;
 use Paymill\Models\Request\Payment as iCard;
 use Paymill\Models\Response\Client as C;
 use Paymill\Models\Response\Payment as oCard;
 use Paymill\Request as API;
-use Paymill\Services\PaymillException as lException;
 // 2017-02-10
 /** @method \Dfe\Paymill\Method m() */
 final class Customer extends \Df\StripeClone\Facade\Customer {
@@ -25,7 +25,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
 	 * @used-by create()
-	 * @used-by \Df\StripeClone\Charge::newCard()
+	 * @used-by \Df\StripeClone\P\Charge::newCard()
 	 * @param C $c
 	 * @param string $token
 	 * @return string
@@ -44,14 +44,14 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * а вот для Paymill банковскую карту надо регистрировать отдельным запросом к ПС.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::create()
-	 * @used-by \Df\StripeClone\Charge::newCard()
+	 * @used-by \Df\StripeClone\P\Charge::newCard()
 	 * @param array(string => mixed) $p
 	 * @return C
 	 */
 	function create(array $p) {
 		/** @var C $result */
 		$result = $this->api()->create((new iCustomer)
-			->setEmail($p[_Charge::KC_EMAIL])->setDescription($p[_Charge::KC_DESCRIPTION])
+			->setEmail($p[Reg::K_EMAIL])->setDescription($p[Reg::K_DESCRIPTION])
 		);
 		$this->cardAdd($result, $p[_Charge::K_CARD]);
 		return $result;
@@ -61,7 +61,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * 2017-02-10
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::id()
-	 * @used-by \Df\StripeClone\Charge::newCard()
+	 * @used-by \Df\StripeClone\P\Charge::newCard()
 	 * @param C $c
 	 * @return string
 	 */
