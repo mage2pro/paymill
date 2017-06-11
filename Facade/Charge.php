@@ -19,8 +19,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @used-by \Df\StripeClone\Method::charge()
 	 * @param string $id
 	 * @param int|float $a
-	 * The $a value is already converted to the payment service provider currency
-	 * and formatted according to the payment service provider requirements.
+	 * The $a value is already converted to the PSP currency and formatted according to the PSP requirements.
 	 * @return oCharge
 	 */
 	function capturePreauthorized($id, $a) {
