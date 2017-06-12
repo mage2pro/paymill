@@ -36,6 +36,17 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	}
 
 	/**
+	 * 2017-02-11
+	 * Идентификаторы банковских карт (в терминологии Paymill - «Payment») имеют вид
+	 * «pay_ddcc9210289ede708c97eb67».
+	 * @override
+	 * @see \Df\StripeClone\Facade\Charge::cardIdPrefix()
+	 * @used-by \Df\StripeClone\Payer::usePreviousCard()
+	 * @return string
+	 */
+	function cardIdPrefix() {return 'pay';}
+
+	/**
 	 * 2017-02-10
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::create()
