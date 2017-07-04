@@ -14,23 +14,19 @@
 -->
 			<group
 				id='paymill'
-				translate='label'
+				showInDefault='1' showInStore='1' showInWebsite='1'
 				sortOrder='1601'
-				showInDefault='1'
-				showInWebsite='1'
-				showInStore='1'
+				translate='label'
 			>
 				<label>Paymill</label>
 				<dfExtension>Dfe_Paymill</dfExtension>
 				<frontend_model>Df\Config\Fieldset</frontend_model>
 				<field
 					id='enable'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='1'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='1'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Enable?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -38,12 +34,10 @@
 				</field>
 				<field
 					id='title'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='2'
 					translate='label'
 					type='text'
-					sortOrder='2'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Title</label>
 					<comment><![CDATA[It is shown on the checkout screen.]]></comment>
@@ -52,12 +46,10 @@
 				</field>
 				<field
 					id='test'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='3'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='3'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Test Mode?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -66,12 +58,10 @@
 				</field>
 				<field
 					id='testPrivateKey'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='4'
 					translate='label'
 					type='obscure'
-					sortOrder='4'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Private Test Key</label>
 					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/2642' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/2635' target='_blank'>How to create a test account?</a></li></ul>]]></comment>
@@ -83,12 +73,10 @@
 				</field>
 				<field
 					id='testPublicKey'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='5'
 					translate='label'
 					type='text'
-					sortOrder='5'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Public Test Key</label>
 					<comment><![CDATA[<ul class='df-note'><li><a href='https://mage2.pro/t/2642' target='_blank'>Where are the API credentials located?</a></li><li><a href='https://mage2.pro/t/2635' target='_blank'>How to create a test account?</a></li></ul>]]></comment>
@@ -99,12 +87,10 @@
 				</field>
 				<field
 					id='test3DS'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='6'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='6'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Test with the 3D Secure validation?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -116,12 +102,10 @@
 				</field>
 				<field
 					id='prefillWithout3DS'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='7'
 					translate='label'
 					type='select'
-					sortOrder='7'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Bank Card Number</label>
 					<source_model>Dfe\Paymill\Source\Prefill\Without3DS</source_model>
@@ -134,12 +118,10 @@
 				</field>
 				<field
 					id='prefillWith3DS'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='8'
 					translate='label'
 					type='select'
-					sortOrder='8'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Bank Card Number</label>
 					<source_model>Dfe\Paymill\Source\Prefill\With3DS</source_model>
@@ -152,12 +134,10 @@
 				</field>
 				<field
 					id='livePrivateKey'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='9'
 					translate='label'
 					type='obscure'
-					sortOrder='9'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Private Live Key</label>
 					<comment><![CDATA[<a href='https://mage2.pro/t/2642' target='_blank'>Where are the API credentials located?</a>]]></comment>
@@ -169,12 +149,10 @@
 				</field>
 				<field
 					id='livePublicKey'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='10'
 					translate='label'
 					type='text'
-					sortOrder='10'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Public Live Key</label>
 					<comment><![CDATA[<a href='https://mage2.pro/t/2642' target='_blank'>Where are the API credentials located?</a>]]></comment>
@@ -185,12 +163,10 @@
 				</field>
 				<field
 					id='webhook'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='11'
 					translate='label'
 					type='Df\Framework\Form\Element\Webhook'
-					sortOrder='11'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Webhook</label>
 					<comment><![CDATA[<a href='https://mage2.pro/t/2644' target='_blank'>set it in your Paymill account</a>]]></comment>
@@ -198,24 +174,20 @@
 				</field>
 				<field
 					id='currency'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='12'
 					translate='label'
 					type='Df\Directory\FormElement\Currency'
-					sortOrder='12'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Payment Currency</label>
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
 					id='actionForNew'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='13'
 					translate='label'
 					type='select'
-					sortOrder='13'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Payment Action for a New Customer</label>
 					<source_model>Df\Payment\Source\AC</source_model>
@@ -224,12 +196,10 @@
 				</field>
 				<field
 					id='actionForReturned'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='14'
 					translate='label'
 					type='select'
-					sortOrder='14'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Payment Action for a Returned Customer</label>
 					<source_model>Df\Payment\Source\AC</source_model>
@@ -237,12 +207,10 @@
 				</field>
 				<field
 					id='description'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='15'
 					translate='label'
 					type='textarea'
-					sortOrder='15'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Description</label>
 					<comment><![CDATA[It will be displayed in the Paymill web interface alongside the payment.<br/>You can use <a href='https://mage2.pro/t/1834' target='_blank'>variables</a> in the description.]]></comment>
@@ -250,12 +218,10 @@
 				</field>
 				<field
 					id='requireBillingAddress'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='16'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='16'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Require the billing address?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -264,12 +230,10 @@
 				</field>
 				<field
 					id='min_order_total'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='17'
 					translate='label'
 					type='text'
-					sortOrder='17'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Minimum Order Total</label>
 					<comment><![CDATA[]]></comment>
@@ -278,12 +242,10 @@
 				</field>
 				<field
 					id='max_order_total'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='18'
 					translate='label'
 					type='text'
-					sortOrder='18'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Maximum Order Total</label>
 					<comment><![CDATA[]]></comment>
@@ -292,12 +254,10 @@
 				</field>
 				<field
 					id='country_restriction'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='19'
 					translate='label'
 					type='select'
-					sortOrder='19'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Country Restriction</label>
 					<source_model>Df\Config\Source\NoWhiteBlack</source_model>
@@ -305,12 +265,10 @@
 				</field>
 				<field
 					id='countries'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='20'
 					translate='label'
 					type='Df\Framework\Form\Element\Multiselect'
-					sortOrder='20'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Countries</label>
 					<source_model>Magento\Directory\Model\Config\Source\Country</source_model>
