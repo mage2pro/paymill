@@ -18,7 +18,7 @@ abstract class TestCase extends \Df\Core\TestCase {
 
 	/** 2017-02-11 */
 	final protected function showLastResponse() {
-		echo "Response data:\n" . df_json_encode_pretty($this->api()->getLastResponse())
+		echo "Response data:\n" . df_json_encode($this->api()->getLastResponse())
 	;}
 
 	/**
