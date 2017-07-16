@@ -25,7 +25,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
 	 * @used-by create()
-	 * @used-by \Df\StripeClone\P\Charge::newCard()
+	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param C $c
 	 * @param string $token
 	 * @return string
@@ -44,7 +44,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * а вот для Paymill банковскую карту надо регистрировать отдельным запросом к ПС.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::create()
-	 * @used-by \Df\StripeClone\P\Charge::newCard()
+	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param array(string => mixed) $p
 	 * @return C
 	 */
@@ -61,7 +61,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * 2017-02-10
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::id()
-	 * @used-by \Df\StripeClone\P\Charge::newCard()
+	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param C $c
 	 * @return string
 	 */
