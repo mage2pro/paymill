@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Paymill\W\Handler\Transaction;
-use Df\StripeClone\W\Strategy\CapturePreauthorized as Strategy;
+use Df\Payment\W\Strategy\CapturePreauthorized as Strategy;
 // 2017-02-14
 // Оповещение «transaction.succeeded» приходит
 // при выполнении операции «capture» из административного интерфейса Paymill.

@@ -1,18 +1,18 @@
 <?php
 namespace Dfe\Paymill\W\Handler\Refund;
-use Df\StripeClone\W\Strategy\Refund as Strategy;
+use Df\Payment\W\Strategy\Refund as Strategy;
 // 2017-02-14
 // Оповещение «refund.succeeded» приходит
 // при выполнении операции «refund» из административного интерфейса Paymill.
 // https://www.omise.co/api-webhooks#refund-events
 // An example of this event: https://mage2.pro/t/2750
-final class Succeeded extends \Df\StripeClone\W\Handler implements \Df\StripeClone\W\IRefund {
+final class Succeeded extends \Df\StripeClone\W\Handler implements \Df\Payment\W\IRefund {
 	/**
 	 * 2017-02-14
 	 * В валюте заказа (платежа), в формате платёжной системы (копейках).
 	 * @override
-	 * @see \Df\StripeClone\W\IRefund::amount()
-	 * @used-by \Df\StripeClone\W\Strategy\Refund::_handle()
+	 * @see \Df\Payment\W\IRefund::amount()
+	 * @used-by \Df\Payment\W\Strategy\Refund::_handle()
 	 * @return int
 	 */
 	function amount() {return $this->e()->ro('amount');}
@@ -26,8 +26,8 @@ final class Succeeded extends \Df\StripeClone\W\Handler implements \Df\StripeClo
 	 * который возвращает @see \Dfe\Paymill\Facade\Refund::transId()
 	 * Пример результата: «refund_2c9cd9a13357f2454522»
 	 * @override
-	 * @see \Df\StripeClone\W\IRefund::eTransId()
-	 * @used-by \Df\StripeClone\W\Strategy\Refund::_handle()
+	 * @see \Df\Payment\W\IRefund::eTransId()
+	 * @used-by \Df\Payment\W\Strategy\Refund::_handle()
 	 * @return string
 	 */
 	function eTransId() {return $this->e()->ro('id');}
