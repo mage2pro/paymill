@@ -2,8 +2,9 @@
 namespace Dfe\Paymill\W\Handler\Refund;
 /**
  * 2017-02-14
- * We get the `refund.succeeded` event when a refund has just been made by the merchant from the Paymill backend.
- * https://mage2.pro/t/topic/2750
+ * 2017-08-16
+ * We get the `refund.succeeded` event when the merchant has just refunded a payment from his Paymill backend.
+ * An example of the event's data: https://mage2.pro/t/topic/2750
  * @method \Dfe\Paymill\W\Event e()
  */
 final class Succeeded extends \Df\Payment\W\Handler implements \Df\Payment\W\IRefund {
