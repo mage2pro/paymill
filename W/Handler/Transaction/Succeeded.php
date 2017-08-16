@@ -9,8 +9,8 @@ final class Succeeded extends \Df\StripeClone\W\Handler {
 	/**
 	 * 2017-02-14
 	 * @override
-	 * @see \Df\StripeClone\W\Handler::strategyC()
-	 * @used-by \Df\StripeClone\W\Handler::_handle()
+	 * @see \Df\Payment\W\Handler::strategyC()
+	 * @used-by \Df\Payment\W\Handler::handle()
 	 * @return string
 	 */
 	protected function strategyC() {return Strategy::class;}
