@@ -1,11 +1,10 @@
 <?php
 namespace Dfe\Paymill\W\Handler\Transaction;
-use Df\Payment\W\Strategy\CapturePreauthorized as Strategy;
 // 2017-02-14
 // Оповещение «transaction.succeeded» приходит
 // при выполнении операции «capture» из административного интерфейса Paymill.
 // An example of this event: https://mage2.pro/t/2749
-final class Succeeded extends \Df\StripeClone\W\Handler {
+final class Succeeded extends \Df\Payment\W\Handler {
 	/**
 	 * 2017-02-14
 	 * @override
@@ -13,5 +12,5 @@ final class Succeeded extends \Df\StripeClone\W\Handler {
 	 * @used-by \Df\Payment\W\Handler::handle()
 	 * @return string
 	 */
-	protected function strategyC() {return Strategy::class;}
+	protected function strategyC() {return \Df\Payment\W\Strategy\CapturePreauthorized::class;}
 }

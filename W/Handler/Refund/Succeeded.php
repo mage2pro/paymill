@@ -1,12 +1,12 @@
 <?php
 namespace Dfe\Paymill\W\Handler\Refund;
-use Df\Payment\W\Strategy\Refund as Strategy;
-// 2017-02-14
-// Оповещение «refund.succeeded» приходит
-// при выполнении операции «refund» из административного интерфейса Paymill.
-// https://www.omise.co/api-webhooks#refund-events
-// An example of this event: https://mage2.pro/t/2750
-final class Succeeded extends \Df\StripeClone\W\Handler implements \Df\Payment\W\IRefund {
+/**
+ * 2017-02-14
+ * We get the `refund.succeeded` event when a refund has just been made by the merchant from the Paymill backend.
+ * https://mage2.pro/t/topic/2750
+ * @method \Dfe\Paymill\W\Event e()
+ */
+final class Succeeded extends \Df\Payment\W\Handler implements \Df\Payment\W\IRefund {
 	/**
 	 * 2017-02-14
 	 * В валюте заказа (платежа), в формате платёжной системы (копейках).
@@ -39,5 +39,5 @@ final class Succeeded extends \Df\StripeClone\W\Handler implements \Df\Payment\W
 	 * @used-by \Df\Payment\W\Handler::handle()
 	 * @return string
 	 */
-	protected function strategyC() {return Strategy::class;}
+	protected function strategyC() {return \Df\Payment\W\Strategy\Refund::class;}
 }
