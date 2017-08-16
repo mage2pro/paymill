@@ -9,8 +9,7 @@ namespace Dfe\Paymill\W\Handler\Refund;
  */
 final class Succeeded extends \Df\Payment\W\Handler implements \Df\Payment\W\IRefund {
 	/**
-	 * 2017-02-14
-	 * В валюте заказа (платежа), в формате платёжной системы (копейках).
+	 * 2017-02-14 В валюте заказа (платежа), в формате платёжной системы (копейках).
 	 * @override
 	 * @see \Df\Payment\W\IRefund::amount()
 	 * @used-by \Df\Payment\W\Strategy\Refund::_handle()
