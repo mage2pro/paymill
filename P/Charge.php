@@ -3,6 +3,7 @@ namespace Dfe\Paymill\P;
 use Df\Core\Exception as DFE;
 use Magento\Sales\Model\Order\Payment as OP;
 // 2017-02-09
+// 2017-09-05 The Paymill API reference: https://developers.paymill.com/API/index
 final class Charge extends \Df\StripeClone\P\Charge {
 	/**
 	 * 2017-02-11
