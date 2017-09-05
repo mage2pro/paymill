@@ -8,6 +8,11 @@
 			<paymill>
 				<actionForNew>authorize_capture</actionForNew>
 				<actionForReturned>authorize_capture</actionForReturned>
+				<descriptionMaxLength>
+					<title>The Paymill API reference: «Transactions» → «Transaction object» → «ATTRIBUTES». See the «description» parameter.</title>
+					<url>https://developers.paymill.com/API/index#-transaction-object</url>
+					<value>128</value>
+				</descriptionMaxLength>
 				<requireBillingAddress>1</requireBillingAddress>
 <!--
 2017-02-05
