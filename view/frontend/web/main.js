@@ -1,7 +1,9 @@
 // 2017-02-05
 define([
 	'Df_StripeClone/main', 'https://bridge.paymill.com/'
-], function(parent) {'use strict'; return parent.extend({
+], function(parent) {'use strict';
+/** 2017-09-06 @uses Class::extend() https://github.com/magento/magento2/blob/2.2.0-rc2.3/app/code/Magento/Ui/view/base/web/js/lib/core/class.js#L106-L140 */	
+return parent.extend({
 	// 2017-02-06
 	// Cardholder name is mandatory for PAYMILL Bridge:
 	// https://developers.paymill.com/guides/reference/bridge#2-creating-a-token
