@@ -213,7 +213,7 @@
 					type='textarea'
 				>
 					<label>Description</label>
-					<comment model='\Df\Payment\Comment\Description'/>
+					<comment model='Df\Payment\Comment\Description'/>
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
