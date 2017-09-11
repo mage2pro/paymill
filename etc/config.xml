@@ -9,6 +9,11 @@
 				<actionForNew>authorize_capture</actionForNew>
 				<actionForReturned>authorize_capture</actionForReturned>
 				<description_rules>
+					<locations>
+						<merchant>
+							<shown>1</shown>
+						</merchant>
+					</locations>
 					<maxLength>
 						<title>The Paymill API reference: «Transactions» → «Transaction object» → «ATTRIBUTES». See the «description» parameter.</title>
 						<url>https://developers.paymill.com/API/index#-transaction-object</url>
