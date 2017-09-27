@@ -14,7 +14,7 @@ final class Card extends TestCase {
 		$api = $this->api();
 		/** @var oCard $oCard */
 		$oCard = $api->create((new iCard)->setToken($this->token()));
-		echo "Response ID: {$oCard->getId()}\n";
+		print_r("Response ID: {$oCard->getId()}\n");
 		$this->showLastResponse();
 	}
 }

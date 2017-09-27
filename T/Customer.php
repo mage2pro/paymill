@@ -20,7 +20,7 @@ final class Customer extends TestCase {
 		$iCustomer->setDescription('Дмитрий Федюк');
 		/** @var oCustomer $oCustomer */
 		$oCustomer = $api->create($iCustomer);
-		echo "Response ID: {$oCustomer->getId()}\n";
+		print_r("Response ID: {$oCustomer->getId()}\n");
 		$this->showLastResponse();
 	}
 

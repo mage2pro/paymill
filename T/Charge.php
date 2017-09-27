@@ -41,7 +41,7 @@ final class Charge extends TestCase {
 	}
 
 	/** 2017-02-11 */
-	function t02_ListAll() {echo "Response data:\n" . df_json_encode($this->ids());}
+	function t02_ListAll() {print_r("Response data:\n" . df_json_encode($this->ids()));}
 
 	/**
 	 * 2017-02-11
