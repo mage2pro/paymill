@@ -1,8 +1,7 @@
 <?php
 namespace Dfe\Paymill\Facade;
 use Paymill\Models\Response\Payment as C;
-// 2017-02-11
-// https://developers.paymill.com/API/index#-payment-object-for-credit-card-payments
+// 2017-02-11 https://developers.paymill.com/API/index#-payment-object-for-credit-card-payments
 final class Card implements \Df\StripeClone\Facade\ICard {
 	/**
 	 * 2017-02-11
@@ -20,8 +19,9 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	;}
 
 	/**
-	 * 2017-02-11
-	 * https://developers.paymill.com/API/index#list-payments-
+	 * 2017-02-11 https://developers.paymill.com/API/index#list-payments-
+	 * 2017-10-07 «Card type. eg. visa, mastercard ...»
+	 * Type: string.
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::brand()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
@@ -41,36 +41,47 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 
 	/**
 	 * 2017-02-11
-	 * 2017-10-07 An ISO-2 code.
+	 * 2017-10-07
+	 * Note 1. An ISO-2 code.
+	 * Note 2. «Customer address country. E.g. DE.»
+	 * Type: string / null.
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::country()
 	 * @used-by \Df\StripeClone\CardFormatter::country()
-	 * @return string
+	 * @return string|null
 	 */
 	function country() {return $this->_c->getCountry();}
 
 	/**
 	 * 2017-02-11
+	 * 2017-10-07 «Expiry month of the credit card»
+	 * E.g.: «10».
+	 * Type: string.
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::expMonth()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
-	 * @return string|int
+	 * @return int
 	 */
-	function expMonth() {return $this->_c->getExpireMonth();}
+	function expMonth() {return intval($this->_c->getExpireMonth());}
 
 	/**
 	 * 2017-02-11
+	 * 2017-10-07 «xpiry year of the credit card»
+	 * E.g.: «2013».
+	 * Type: string.
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::expYear()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
-	 * @return string
+	 * @return int
 	 */
-	function expYear() {return $this->_c->getExpireYear();}
+	function expYear() {return intval($this->_c->getExpireYear());}
 
 	/**
 	 * 2017-02-11
+	 * 2017-10-07 «Unique identifier for this credit card payment»
+	 * Type: string.
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::id()
 	 * @used-by \Df\StripeClone\ConfigProvider::cards()
@@ -81,6 +92,8 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 
 	/**
 	 * 2017-02-11
+	 * 2017-10-07 «Name of the card holder»
+	 * Type: string.
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::owner()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
@@ -90,6 +103,8 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 
 	/**
 	 * 2017-02-11
+	 * 2017-10-07 «The last four digits of the credit card»
+	 * Type: string.
 	 * @override
 	 * @see \Df\StripeClone\Facade\ICard::last4()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
