@@ -23,28 +23,15 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @return oCharge
 	 */
 	function capturePreauthorized($id, $a) {
-		/** @var oCharge $oCharge */
-		$oCharge = $this->load($id);
+		$oCharge = $this->load($id); /** @var oCharge $oCharge */
 		return $this->api()->create((new iCharge)
-			// 2019-02-19
-			// Для перестраховки от конверсионных погрешностей не используем $a.
+			// 2019-02-19 Для перестраховки от конверсионных погрешностей не используем $a.
 			->setAmount($oCharge->getAmount())
 			->setDescription($oCharge->getDescription())
 			->setCurrency($oCharge->getCurrency())
 			->setPreauthorization($oCharge->getPreauthorization()->getId())
 		);
 	}
-
-	/**
-	 * 2017-02-11
-	 * Идентификаторы банковских карт (в терминологии Paymill - «Payment») имеют вид
-	 * «pay_ddcc9210289ede708c97eb67».
-	 * @override
-	 * @see \Df\StripeClone\Facade\Charge::cardIdPrefix()
-	 * @used-by \Df\StripeClone\Payer::usePreviousCard()
-	 * @return string
-	 */
-	function cardIdPrefix() {return 'pay';}
 
 	/**
 	 * 2017-02-10
@@ -55,18 +42,16 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @return oCharge
 	 */
 	function create(array $p) {
-		/** @var bool $capture */
-		$capture = $p[_Charge::K_CAPTURE];
+		$capture = $p[_Charge::K_CAPTURE]; /** @var bool $capture */
 		// 2017-02-12
 		// Приходится заводить эту переменную, потому что иначе интерпретатор PHP даёт сбой:
 		// «syntax error, unexpected '->' (T_OBJECT_OPERATOR)».
-		/** @var iCharge|iAuth $i */
-		$i = $capture ? new iCharge : new iAuth;
+		$i = $capture ? new iCharge : new iAuth; /** @var iCharge|iAuth $i */
 		/** @var oCharge|oAuth $o */
 		$o = $this->api()->create($i
 			->setAmount($p[_Charge::K_AMOUNT])
 			->setDescription($p[_Charge::K_DESCRIPTION])
-			->setClient($p[_Charge::K_CUSTOMER])
+			->setClient($p[_Charge::K_CUSTOMER_ID])
 			->setCurrency($p[_Charge::K_CURRENCY])
 			->setPayment($p[_Charge::K_CARD])
 		);
@@ -95,6 +80,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::pathToCard()
 	 * @used-by \Df\StripeClone\Block\Info::prepare()
+	 * @used-by \Df\StripeClone\Facade\Charge::cardData()
 	 * @return string
 	 */
 	function pathToCard() {return 'payment';}
@@ -127,15 +113,15 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	);}
 
 	/**
-	 * 2017-02-11 The bank card data.
+	 * 2017-02-11
+	 * Идентификаторы банковских карт (в терминологии Paymill - «Payment») имеют вид
+	 * «pay_ddcc9210289ede708c97eb67».
 	 * @override
-	 * @see \Df\StripeClone\Facade\Charge::cardData()
-	 * @used-by \Df\StripeClone\Facade\Charge::card()
-	 * @param oCharge $c
-	 * @return oCard
-	 * @see \Dfe\Paymill\Facade\Customer::cardsData()
+	 * @see \Df\StripeClone\Facade\Charge::cardIdPrefix()
+	 * @used-by \Df\StripeClone\Payer::usePreviousCard()
+	 * @return string
 	 */
-	protected function cardData($c) {return $c->getPayment();}
+	protected function cardIdPrefix() {return 'pay_';}
 
 	/**
 	 * 2017-02-11

@@ -8,7 +8,7 @@ use Paymill\Models\Response\Client as oCustomer;
 use Paymill\Models\Response\Payment as oCard;
 use Paymill\Models\Response\Transaction as oCharge;
 use Paymill\Request as lRequest;
-final class Charge extends TestCase {
+final class Charge extends CaseT {
 	/** @test */
 	function t00() {}
 

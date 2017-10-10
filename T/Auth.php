@@ -3,7 +3,7 @@ namespace Dfe\Paymill\T;
 use Paymill\Models\Request\Preauthorization as iAuth;
 use Paymill\Models\Response\Preauthorization as oAuth;
 // 2017-02-12
-final class Auth extends TestCase {
+final class Auth extends CaseT {
 	/**
 	 * 2017-02-12
 	 * [Paymill] An example of a preauthorization response: https://mage2.pro/t/2731

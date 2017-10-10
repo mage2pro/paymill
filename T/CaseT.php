@@ -9,7 +9,7 @@ use Paymill\Request as API;
  * @see \Dfe\Paymill\T\Customer
  * @method \Dfe\Paymill\Settings s()
  */
-abstract class TestCase extends \Df\Core\TestCase {
+abstract class CaseT extends \Df\Core\TestCase {
 	/**
 	 * 2017-02-08
 	 * @return API

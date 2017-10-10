@@ -4,7 +4,7 @@ namespace Dfe\Paymill\T;
 use Paymill\Models\Request\Payment as iCard;
 use Paymill\Models\Response\Payment as oCard;
 use Paymill\Request as API;
-final class Card extends TestCase {
+final class Card extends CaseT {
 	/** @test 2017-02-08 */
 	function t00() {}
 

@@ -6,7 +6,7 @@ use Paymill\Models\Request\Payment as iCard;
 use Paymill\Models\Response\Client as oCustomer;
 use Paymill\Models\Response\Payment as oCard;
 use Paymill\Request as API;
-final class Customer extends TestCase {
+final class Customer extends CaseT {
 	/** @test */
 	function t00() {}
 
