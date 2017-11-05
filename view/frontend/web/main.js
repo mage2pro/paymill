@@ -91,12 +91,16 @@ return parent.extend({
 	 * @returns {Object}
 	 */
 	tokenParams: function() {return {
-		// 2017-02-06
-		// https://blog.paymill.com/en/clarification-on-amount-int/#content-wrapper
-		// 2017-02-07
-		// Whether all the Paymill-supported currencies are 2-decimal
-		// or some currencies are zero-decimal?
-		// https://mage2.pro/t/2675
+		/**
+		 * 2017-02-06 https://blog.paymill.com/en/clarification-on-amount-int/#content-wrapper
+		 * 2017-02-07
+		 * «Whether all the Paymill-supported currencies are 2-decimal or some currencies are zero-decimal?»
+		 * https://mage2.pro/t/2675
+		 * 2017-11-05
+		 * «A payment's amount could be changed client-side (e.g., on a discount code application),
+		 * and `amount_int: this.amountF()` will produce a wrong result in such case»
+		 * https://github.com/mage2pro/paymill/issues/3
+		 */
 		amount_int: this.amountF()
 		,cardholder: this.cardholder()
 		,currency: this.paymentCurrency().code
