@@ -1,7 +1,7 @@
 {
 	"name": "mage2pro/paymill"
 	,"version": "1.6.1"
-	,"description": "The «Paymill» payment extension for Magento 2."
+	,"description": "Paymill integration with Magento 2"
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/c/extensions/paymill"
 	,"license": "proprietary"
