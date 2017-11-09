@@ -1,4 +1,4 @@
-The extension integrates your Magento 2 store with the **[Paymill](https://www.paymill.com/)** payment service.
+The extension integrates your Magento 2 based webstore with the **[Paymill](https://www.paymill.com/)** payment service.
 
 ## Demo videos
 
