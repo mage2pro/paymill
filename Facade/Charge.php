@@ -79,7 +79,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * An example of Paymill response: https://mage2.pro/t/2682
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::pathToCard()
-	 * @used-by \Df\StripeClone\Block\Info::prepare()
+	 * @used-by \Df\StripeClone\Block\Info::cardData()
 	 * @used-by \Df\StripeClone\Facade\Charge::cardData()
 	 * @return string
 	 */
