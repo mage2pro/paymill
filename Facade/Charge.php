@@ -118,7 +118,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * «pay_ddcc9210289ede708c97eb67».
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::cardIdPrefix()
-	 * @used-by \Df\StripeClone\Payer::usePreviousCard()
+	 * @used-by \Df\StripeClone\Payer::tokenIsNew()
 	 * @return string
 	 */
 	protected function cardIdPrefix() {return 'pay_';}
