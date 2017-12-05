@@ -21,15 +21,9 @@
 					</maxLength>
 				</description_rules>
 				<requireBillingAddress>1</requireBillingAddress>
-<!--
-2017-02-05
-Which payment currencies does Paymill support? https://mage2.pro/t/2637
--->
+<!-- 2017-02-05 Which payment currencies does Paymill support? https://mage2.pro/t/2637 -->
 				<currency>EUR</currency>
-<!--
-2017-02-05
-По умолчанию пусть будет Visa.
--->
+<!-- 2017-02-05 По умолчанию пусть будет Visa. -->
 				<prefillWith3DS>4012888888881881</prefillWith3DS>
 				<prefillWithout3DS>4111111111111111</prefillWithout3DS>
 				<title>Bank Card</title>
