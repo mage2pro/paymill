@@ -2,7 +2,7 @@
 namespace Dfe\Paymill\Facade;
 use Paymill\Models\Response\Payment as C;
 // 2017-02-11 https://developers.paymill.com/API/index#-payment-object-for-credit-card-payments
-final class Card implements \Df\StripeClone\Facade\ICard {
+final class Card extends \Df\StripeClone\Facade\Card {
 	/**
 	 * 2017-02-11
 	 * @used-by \Df\StripeClone\Facade\Card::create()
@@ -23,7 +23,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * 2017-10-07 «Card type. eg. visa, mastercard ...»
 	 * Type: string.
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::brand()
+	 * @see \Df\StripeClone\Facade\Card::brand()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @used-by \Df\StripeClone\CardFormatter::label()
 	 * @return string
@@ -46,7 +46,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * Note 2. «Customer address country. E.g. DE.»
 	 * Type: string / null.
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::country()
+	 * @see \Df\StripeClone\Facade\Card::country()
 	 * @used-by \Df\StripeClone\CardFormatter::country()
 	 * @return string|null
 	 */
@@ -58,7 +58,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * E.g.: «10».
 	 * Type: string.
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::expMonth()
+	 * @see \Df\StripeClone\Facade\Card::expMonth()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @return int
@@ -71,7 +71,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * E.g.: «2013».
 	 * Type: string.
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::expYear()
+	 * @see \Df\StripeClone\Facade\Card::expYear()
 	 * @used-by \Df\StripeClone\CardFormatter::exp()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @return int
@@ -83,7 +83,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * 2017-10-07 «Unique identifier for this credit card payment»
 	 * Type: string.
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::id()
+	 * @see \Df\StripeClone\Facade\Card::id()
 	 * @used-by \Df\StripeClone\ConfigProvider::cards()
 	 * @used-by \Df\StripeClone\Facade\Customer::cardIdForJustCreated()
 	 * @return string
@@ -95,7 +95,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * 2017-10-07 «Name of the card holder»
 	 * Type: string.
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::owner()
+	 * @see \Df\StripeClone\Facade\Card::owner()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @return string
 	 */
@@ -106,7 +106,7 @@ final class Card implements \Df\StripeClone\Facade\ICard {
 	 * 2017-10-07 «The last four digits of the credit card»
 	 * Type: string.
 	 * @override
-	 * @see \Df\StripeClone\Facade\ICard::last4()
+	 * @see \Df\StripeClone\Facade\Card::last4()
 	 * @used-by \Df\StripeClone\CardFormatter::ii()
 	 * @used-by \Df\StripeClone\CardFormatter::label()
 	 * @return string
