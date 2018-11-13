@@ -67,7 +67,7 @@ final class Card extends \Df\StripeClone\Facade\Card {
 
 	/**
 	 * 2017-02-11
-	 * 2017-10-07 «xpiry year of the credit card»
+	 * 2017-10-07 «Expiry year of the credit card»
 	 * E.g.: «2013».
 	 * Type: string.
 	 * @override
