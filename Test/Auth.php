@@ -1,5 +1,5 @@
 <?php
-namespace Dfe\Paymill\T;
+namespace Dfe\Paymill\Test;
 use Paymill\Models\Request\Preauthorization as iAuth;
 use Paymill\Models\Response\Preauthorization as oAuth;
 // 2017-02-12

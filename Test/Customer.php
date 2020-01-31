@@ -1,6 +1,6 @@
 <?php
 // 2017-02-11
-namespace Dfe\Paymill\T;
+namespace Dfe\Paymill\Test;
 use Paymill\Models\Request\Client as iCustomer;
 use Paymill\Models\Request\Payment as iCard;
 use Paymill\Models\Response\Client as oCustomer;

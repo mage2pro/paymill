@@ -1,12 +1,12 @@
 <?php
-namespace Dfe\Paymill\T;
+namespace Dfe\Paymill\Test;
 use Paymill\Request as API;
 /**
  * 2017-02-08
- * @see \Dfe\Paymill\T\Auth
- * @see \Dfe\Paymill\T\Card
- * @see \Dfe\Paymill\T\Charge
- * @see \Dfe\Paymill\T\Customer
+ * @see \Dfe\Paymill\Test\Auth
+ * @see \Dfe\Paymill\Test\Card
+ * @see \Dfe\Paymill\Test\Charge
+ * @see \Dfe\Paymill\Test\Customer
  * @method \Dfe\Paymill\Settings s()
  */
 abstract class CaseT extends \Df\Core\TestCase {
