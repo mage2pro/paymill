@@ -16,7 +16,7 @@ final class Settings extends \Df\StripeClone\Settings {
 	 * 2017-02-07
 	 * «Test with the 3D Secure validation?»
 	 * Первый аргумент — для «да», второй — для «нет».
-	 * @param mixed[] ...$args [optional]
+	 * @param mixed ...$args [optional]
 	 * @used-by prefill()
 	 * @return bool
 	 */
