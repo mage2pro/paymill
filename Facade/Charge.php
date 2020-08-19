@@ -9,7 +9,7 @@ use Paymill\Models\Response\Preauthorization as oAuth;
 use Paymill\Models\Response\Refund as oRefund;
 use Paymill\Models\Response\Transaction as oCharge;
 use Paymill\Request as API;
-// 2017-02-10
+# 2017-02-10
 /** @method \Dfe\Paymill\Method m() */
 final class Charge extends \Df\StripeClone\Facade\Charge {
 	/**
@@ -25,7 +25,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	function capturePreauthorized($id, $a) {
 		$oCharge = $this->load($id); /** @var oCharge $oCharge */
 		return $this->api()->create((new iCharge)
-			// 2019-02-19 Для перестраховки от конверсионных погрешностей не используем $a.
+			# 2019-02-19 Для перестраховки от конверсионных погрешностей не используем $a.
 			->setAmount($oCharge->getAmount())
 			->setDescription($oCharge->getDescription())
 			->setCurrency($oCharge->getCurrency())
@@ -43,9 +43,9 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 */
 	function create(array $p) {
 		$capture = $p[_Charge::K_CAPTURE]; /** @var bool $capture */
-		// 2017-02-12
-		// Приходится заводить эту переменную, потому что иначе интерпретатор PHP даёт сбой:
-		// «syntax error, unexpected '->' (T_OBJECT_OPERATOR)».
+		# 2017-02-12
+		# Приходится заводить эту переменную, потому что иначе интерпретатор PHP даёт сбой:
+		# «syntax error, unexpected '->' (T_OBJECT_OPERATOR)».
 		$i = $capture ? new iCharge : new iAuth; /** @var iCharge|iAuth $i */
 		/** @var oCharge|oAuth $o */
 		$o = $this->api()->create($i
@@ -55,9 +55,9 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 			->setCurrency($p[_Charge::K_CURRENCY])
 			->setPayment($p[_Charge::K_CARD])
 		);
-		// 2017-02-12
-		// Если $capture == false, то нужно явно инициализировать свойство payment,
-		// иначе оно будет содержать не объект (банковскую карту), а лишь идентификатор этого объекта.
+		# 2017-02-12
+		# Если $capture == false, то нужно явно инициализировать свойство payment,
+		# иначе оно будет содержать не объект (банковскую карту), а лишь идентификатор этого объекта.
 		return $capture ? $o : $o->getTransaction()->setPayment($o->getPayment());
 	}
 

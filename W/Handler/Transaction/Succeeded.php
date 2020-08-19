@@ -1,10 +1,10 @@
 <?php
 namespace Dfe\Paymill\W\Handler\Transaction;
-// 2017-02-14
-// 2017-08-16
-// We get the `transaction.succeeded` event
-// when the merchant has just captured a preauthorized payment from his Paymill backend.
-// An example of the event's data: https://mage2.pro/t/2749
+# 2017-02-14
+# 2017-08-16
+# We get the `transaction.succeeded` event
+# when the merchant has just captured a preauthorized payment from his Paymill backend.
+# An example of the event's data: https://mage2.pro/t/2749
 final class Succeeded extends \Df\Payment\W\Handler {
 	/**
 	 * 2017-02-14

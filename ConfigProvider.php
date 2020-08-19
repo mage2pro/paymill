@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\Paymill;
 use Dfe\Paymill\Source\Prefill;
-// 2017-02-05
+# 2017-02-05
 final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 	/**
 	 * 2017-02-05

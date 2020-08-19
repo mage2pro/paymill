@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\Paymill\Facade;
 use Paymill\Models\Response\Payment as C;
-// 2017-02-11 https://developers.paymill.com/API/index#-payment-object-for-credit-card-payments
+# 2017-02-11 https://developers.paymill.com/API/index#-payment-object-for-credit-card-payments
 final class Card extends \Df\StripeClone\Facade\Card {
 	/**
 	 * 2017-02-11

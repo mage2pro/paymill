@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Paymill\Facade;
-// 2017-02-11
+# 2017-02-11
 /** @method \Dfe\Paymill\Method m() */
 final class O extends \Df\StripeClone\Facade\O {
 	/**

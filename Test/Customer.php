@@ -1,5 +1,5 @@
 <?php
-// 2017-02-11
+# 2017-02-11
 namespace Dfe\Paymill\Test;
 use Paymill\Models\Request\Client as iCustomer;
 use Paymill\Models\Request\Payment as iCard;
@@ -70,8 +70,8 @@ final class Customer extends CaseT {
 		/** @var iCard $iCard */
 		$iCard = new iCard;
 		$iCard->setClient($id);
-		// 2017-02-11
-		// [Paymill] The test bank cards: https://mage2.pro/t/2639
+		# 2017-02-11
+		# [Paymill] The test bank cards: https://mage2.pro/t/2639
 		$iCard->setToken($this->token('5500000000000004'));
 		/** @var oCard $oCard */
 		$oCard = $api->create($iCard);

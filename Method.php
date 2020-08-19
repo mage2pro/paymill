@@ -3,7 +3,7 @@ namespace Dfe\Paymill;
 use Magento\Sales\Model\Order\Payment as OP;
 use Magento\Sales\Model\Order\Payment\Transaction as T;
 use Paymill\Request as API;
-// 2017-02-05
+# 2017-02-05
 /** @method Settings s() */
 final class Method extends \Df\StripeClone\Method {
 	/**

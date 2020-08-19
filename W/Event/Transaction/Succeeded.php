@@ -1,6 +1,6 @@
 <?php
 namespace Dfe\Paymill\W\Event\Transaction;
-// 2017-03-15
+# 2017-03-15
 final class Succeeded extends \Dfe\Paymill\W\Event {
 	/**
 	 * 2017-02-14
