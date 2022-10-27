@@ -27,7 +27,7 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	
 	/**
 	 * 2017-02-11
-	 * @used-by k_CardId()
+	 * @used-by self::k_CardId()
 	 * @used-by \Dfe\Paymill\Facade\Charge::create()
 	 * @used-by \Dfe\Paymill\Facade\Customer::create()
 	 */

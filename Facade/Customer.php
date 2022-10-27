@@ -14,15 +14,14 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * 2017-02-10
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
-	 * @used-by create()
+	 * @used-by self::create()
 	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param C $c
 	 * @param string $token
 	 * @return string
 	 */
 	function cardAdd($c, $token) {
-		/** @var oCard $oCard */
-		$oCard = $this->api()->create((new iCard)->setClient($c->getId())->setToken($token));
+		$oCard = $this->api()->create((new iCard)->setClient($c->getId())->setToken($token)); /** @var oCard $oCard */
 		$c->setPayment(array_merge($c->getPayment(), [$oCard]));
 		return $oCard->getId();
 	}

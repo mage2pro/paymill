@@ -17,7 +17,7 @@ final class Settings extends \Df\StripeClone\Settings {
 	 * «Test with the 3D Secure validation?»
 	 * Первый аргумент — для «да», второй — для «нет».
 	 * @param mixed ...$args [optional]
-	 * @used-by prefill()
+	 * @used-by self::prefill()
 	 * @return bool
 	 */
 	private function test3DS(...$args) {return df_b($args, $this->b());}
