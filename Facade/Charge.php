@@ -20,9 +20,8 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param string $id
 	 * @param int|float $a
 	 * The $a value is already converted to the PSP currency and formatted according to the PSP requirements.
-	 * @return oCharge
 	 */
-	function capturePreauthorized($id, $a) {
+	function capturePreauthorized($id, $a):oCharge {
 		$oCharge = $this->load($id); /** @var oCharge $oCharge */
 		return $this->api()->create((new iCharge)
 			# 2019-02-19 Для перестраховки от конверсионных погрешностей не используем $a.
@@ -39,9 +38,8 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::create()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param array(string => mixed) $p
-	 * @return oCharge
 	 */
-	function create(array $p) {
+	function create(array $p):oCharge {
 		$capture = $p[_Charge::K_CAPTURE]; /** @var bool $capture */
 		# 2017-02-12
 		# Приходится заводить эту переменную, потому что иначе интерпретатор PHP даёт сбой:
@@ -67,9 +65,8 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::id()
 	 * @used-by \Df\StripeClone\Method::chargeNew()
 	 * @param oCharge $c
-	 * @return string
 	 */
-	function id($c) {return $c->getId();}
+	function id($c):string {return $c->getId();}
 
 	/**
 	 * 2017-02-12
@@ -81,36 +78,27 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @see \Df\StripeClone\Facade\Charge::pathToCard()
 	 * @used-by \Df\StripeClone\Block\Info::cardDataFromChargeResponse()
 	 * @used-by \Df\StripeClone\Facade\Charge::cardData()
-	 * @return string
 	 */
-	function pathToCard() {return 'payment';}
+	function pathToCard():string {return 'payment';}
 
 	/**
-	 * 2017-02-10
-	 * Метод должен вернуть библиотечный объект API платёжной системы.
+	 * 2017-02-10 Метод должен вернуть библиотечный объект API платёжной системы.
+	 * 2022-12-19 The $a value is already converted to the PSP currency and formatted according to the PSP requirements.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::refund()
 	 * @used-by \Df\StripeClone\Method::_refund()
-	 * @param string $id
-	 * @param float $a
-	 * В формате и валюте платёжной системы.
-	 * Значение готово для применения в запросе API.
-	 * @return oRefund
 	 */
-	function refund($id, $a) {return $this->api()->create((new iRefund)->setAmount($a)->setId($id));}
+	function refund(string $id, int $a):oRefund {return $this->api()->create((new iRefund)->setAmount($a)->setId($id));}
 
 	/**
-	 * 2017-02-10
-	 * Метод должен вернуть библиотечный объект API платёжной системы.
+	 * 2017-02-10 Метод должен вернуть библиотечный объект API платёжной системы.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::void()
 	 * @used-by \Df\StripeClone\Method::_refund()
-	 * @param string $id
-	 * @return oAuth
 	 */
-	function void($id) {return $this->api()->delete(
-		(new iAuth)->setId($this->load($id)->getPreauthorization()->getId())
-	);}
+	function void(string $id):oAuth {return $this->api()->delete((new iAuth)->setId(
+		$this->load($id)->getPreauthorization()->getId()
+	));}
 
 	/**
 	 * 2017-02-11
@@ -119,9 +107,8 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @override
 	 * @see \Df\StripeClone\Facade\Charge::cardIdPrefix()
 	 * @used-by \Df\StripeClone\Payer::tokenIsNew()
-	 * @return string
 	 */
-	protected function cardIdPrefix() {return 'pay_';}
+	protected function cardIdPrefix():string {return 'pay_';}
 
 	/**
 	 * 2017-02-11

@@ -59,7 +59,6 @@ final class Method extends \Df\StripeClone\Method {
 	 * @see \Df\StripeClone\Method::transUrlBase()
 	 * @used-by \Df\StripeClone\Method::transUrl()
 	 * @param T $t
-	 * @return string
 	 */
-	protected function transUrlBase(T $t) {return 'https://app.paymill.com/transactions';}
+	protected function transUrlBase(T $t):string {return 'https://app.paymill.com/transactions';}
 }

@@ -19,7 +19,7 @@ final class Auth extends CaseT {
 		$this->showLastResponse();
 	}
 
-	/** @test 2017-02-12 */
+	/** 2017-02-12 @test */
 	function t02() {
 		/** @var iAuth $iAuth */
 		$iAuth = new iAuth;

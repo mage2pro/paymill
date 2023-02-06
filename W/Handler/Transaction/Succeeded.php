@@ -11,7 +11,6 @@ final class Succeeded extends \Df\Payment\W\Handler {
 	 * @override
 	 * @see \Df\Payment\W\Handler::strategyC()
 	 * @used-by \Df\Payment\W\Handler::handle()
-	 * @return string
 	 */
-	protected function strategyC() {return \Df\Payment\W\Strategy\CapturePreauthorized::class;}
+	protected function strategyC():string {return \Df\Payment\W\Strategy\CapturePreauthorized::class;}
 }

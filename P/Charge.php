@@ -11,19 +11,17 @@ final class Charge extends \Df\StripeClone\P\Charge {
 	 * @override
 	 * @see \Df\StripeClone\P\Charge::k_CardId()
 	 * @used-by \Df\StripeClone\P\Charge::request()
-	 * @return string
+	 * @used-by \Df\StripeClone\P\Reg::k_CardId()
 	 */
-	function k_CardId() {return self::K_CARD;}
+	function k_CardId():string {return self::K_CARD;}
 
 	/**
-	 * 2017-02-18
-	 * Does Paymill support dynamic statement descriptors? https://mage2.pro/t/2823
+	 * 2017-02-18 Does Paymill support dynamic statement descriptors? https://mage2.pro/t/2823
 	 * @override
 	 * @see \Df\StripeClone\P\Charge::k_DSD()
 	 * @used-by \Df\StripeClone\P\Charge::request()
-	 * @return string
 	 */
-	protected function k_DSD() {return null;}
+	protected function k_DSD():string {return '';}
 	
 	/**
 	 * 2017-02-11

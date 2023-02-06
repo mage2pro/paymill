@@ -12,15 +12,14 @@ use Paymill\Request as API;
 final class Customer extends \Df\StripeClone\Facade\Customer {
 	/**
 	 * 2017-02-10
+	 * 2022-12-19 We can not declare the $c argument type because it is undeclared in the overriden method.
 	 * @override
 	 * @see \Df\StripeClone\Facade\Customer::cardAdd()
 	 * @used-by self::create()
 	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param C $c
-	 * @param string $token
-	 * @return string
 	 */
-	function cardAdd($c, $token) {
+	function cardAdd($c, string $token):string {
 		$oCard = $this->api()->create((new iCard)->setClient($c->getId())->setToken($token)); /** @var oCard $oCard */
 		$c->setPayment(array_merge($c->getPayment(), [$oCard]));
 		return $oCard->getId();
@@ -52,9 +51,8 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @see \Df\StripeClone\Facade\Customer::id()
 	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param C $c
-	 * @return string
 	 */
-	function id($c) {return $c->getId();}
+	function id($c):string {return $c->getId();}
 
 	/**
 	 * 2017-02-10

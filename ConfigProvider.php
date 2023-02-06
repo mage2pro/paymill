@@ -10,5 +10,5 @@ final class ConfigProvider extends \Df\StripeClone\ConfigProvider {
 	 * @used-by \Df\Payment\ConfigProvider::getConfig()
 	 * @return array(string => mixed)
 	 */
-	protected function config() {return ['errorCardNumber' => Prefill::ERROR] + parent::config();}
+	protected function config():array {return ['errorCardNumber' => Prefill::ERROR] + parent::config();}
 }
