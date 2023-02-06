@@ -122,8 +122,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * 2017-02-12
 	 * @used-by self::capturePreauthorized()
 	 * @used-by self::void()
-	 * @param string $id
 	 * @return oCharge
 	 */
-	private function load($id) {return $this->api()->getOne((new iCharge)->setId($id));}
+	private function load(string $id) {return $this->api()->getOne((new iCharge)->setId($id));}
 }
