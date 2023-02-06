@@ -1,17 +1,17 @@
 <?php
-# 2017-02-11
 namespace Dfe\Paymill\Test;
 use Paymill\Models\Request\Client as iCustomer;
 use Paymill\Models\Request\Payment as iCard;
 use Paymill\Models\Response\Client as oCustomer;
 use Paymill\Models\Response\Payment as oCard;
 use Paymill\Request as API;
+# 2017-02-11
 final class Customer extends CaseT {
 	/** @test */
-	function t00() {}
+	function t00():void {}
 
 	/** 2017-02-11 */
-	function t01() {
+	function t01():void {
 		/** @var API $api */
 		$api = $this->api();
 		/** @var iCustomer $iCustomer */
@@ -25,12 +25,12 @@ final class Customer extends CaseT {
 	}
 
 	/** 2017-02-11 */
-	function t02_DeleteAll() {array_map(function($id) {
+	function t02_DeleteAll():void {array_map(function($id) {
 		$this->api()->delete((new iCustomer)->setId($id));
 	}, $this->ids());}
 
 	/** 2017-02-11 */
-	function t03_GetById() {
+	function t03_GetById():void {
 		/** @var API $api */
 		$api = $this->api();
 		/** @var string $id */
@@ -50,7 +50,7 @@ final class Customer extends CaseT {
 	 * 2017-02-11
 	 * @expectedException \Paymill\Services\PaymillException
 	 */
-	function t04_GetNonExistent() {
+	function t04_GetNonExistent():void {
 		/** @var API $api */
 		$api = $this->api();
 		/** @var string $id */
@@ -62,7 +62,7 @@ final class Customer extends CaseT {
 	}
 
 	/** 2017-02-11 */
-	function t05_AddCard() {
+	function t05_AddCard():void {
 		/** @var API $api */
 		$api = $this->api();
 		/** @var string $id */
@@ -90,5 +90,5 @@ final class Customer extends CaseT {
 	 * https://developers.paymill.com/API/index#list-clients-
 	 * @return string[]
 	 */
-	private function ids() {return array_column($this->api()->getAll(new iCustomer), 'id');}
+	private function ids():array {return array_column($this->api()->getAll(new iCustomer), 'id');}
 }
