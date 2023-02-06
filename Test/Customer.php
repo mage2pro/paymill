@@ -51,24 +51,17 @@ final class Customer extends CaseT {
 
 	/** 2017-02-11 */
 	function t05_AddCard():void {
-		/** @var API $api */
-		$api = $this->api();
-		/** @var string $id */
-		$id = 'client_cbe81b8bf830d7bbbb60';
-		/** @var iCard $iCard */
-		$iCard = new iCard;
+		$api = $this->api(); /** @var API $api */
+		$id = 'client_cbe81b8bf830d7bbbb60'; /** @var string $id */
+		$iCard = new iCard; /** @var iCard $iCard */
 		$iCard->setClient($id);
-		# 2017-02-11
-		# [Paymill] The test bank cards: https://mage2.pro/t/2639
+		# 2017-02-11 [Paymill] The test bank cards: https://mage2.pro/t/2639
 		$iCard->setToken($this->token('5500000000000004'));
-		/** @var oCard $oCard */
-		$oCard = $api->create($iCard);
+		$oCard = $api->create($iCard); /** @var oCard $oCard */
 		$this->showLastResponse();
-		/** @var iCustomer $iCustomer */
-		$iCustomer = new iCustomer;
+		$iCustomer = new iCustomer; /** @var iCustomer $iCustomer */
 		$iCustomer->setId($id);
-		/** @var oCustomer $oCustomer */
-		$oCustomer = $api->getOne($iCustomer);
+		$oCustomer = $api->getOne($iCustomer); /** @var oCustomer $oCustomer */
 		$this->showLastResponse();
 	}
 
