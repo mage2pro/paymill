@@ -19,8 +19,7 @@ final class Auth extends CaseT {
 
 	/** 2017-02-12 @test */
 	function t02():void {
-		/** @var iAuth $iAuth */
-		$iAuth = new iAuth;
+		$iAuth = new iAuth; /** @var iAuth $iAuth */
 		$iAuth->setId('preauth_4dfe6453fd15d1628a99');
         $this->api()->delete($iAuth);
 		$this->showLastResponse();
