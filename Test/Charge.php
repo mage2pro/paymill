@@ -10,10 +10,10 @@ use Paymill\Models\Response\Transaction as oCharge;
 use Paymill\Request as lRequest;
 final class Charge extends CaseT {
 	/** @test */
-	function t00() {}
+	function t00():void {}
 
 	/** 2017-02-11 */
-	function t01() {
+	function t01():void {
 		/** @var lRequest $api */
 		$api = $this->api();
 		/** @var iCustomer $iCustomer */
@@ -41,12 +41,12 @@ final class Charge extends CaseT {
 	}
 
 	/** 2017-02-11 */
-	function t02_ListAll() {print_r("Response data:\n" . df_json_encode($this->ids()));}
+	function t02_ListAll():void {print_r("Response data:\n" . df_json_encode($this->ids()));}
 
 	/**
 	 * 2017-02-11
 	 * Возвращает не все записи, а только часть.
 	 * @return string[]
 	 */
-	private function ids() {return array_column($this->api()->getAll(new iCharge), 'id');}
+	private function ids():void {return array_column($this->api()->getAll(new iCharge), 'id');}
 }
