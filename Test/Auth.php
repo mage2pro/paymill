@@ -9,13 +9,11 @@ final class Auth extends CaseT {
 	 * [Paymill] An example of a preauthorization response: https://mage2.pro/t/2731
 	 */
 	function t01() {
-		/** @var iAuth $iAuth */
-		$iAuth = new iAuth;
+		$iAuth = new iAuth; /** @var iAuth $iAuth */
 		$iAuth->setToken($this->token());
 		$iAuth->setAmount(100);
 		$iAuth->setCurrency('EUR');
-		/** @var oAuth $oAuth */
-		$oAuth = $this->api()->create($iAuth);
+		$oAuth = $this->api()->create($iAuth); /** @var oAuth $oAuth */
 		$this->showLastResponse();
 	}
 
