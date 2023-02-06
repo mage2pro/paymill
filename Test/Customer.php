@@ -12,22 +12,17 @@ final class Customer extends CaseT {
 
 	/** 2017-02-11 */
 	function t01():void {
-		/** @var API $api */
-		$api = $this->api();
-		/** @var iCustomer $iCustomer */
-		$iCustomer = new iCustomer;
+		$api = $this->api(); /** @var API $api */
+		$iCustomer = new iCustomer; /** @var iCustomer $iCustomer */
 		$iCustomer->setEmail('admin@mage2.pro');
 		$iCustomer->setDescription('Дмитрий Федюк');
-		/** @var oCustomer $oCustomer */
-		$oCustomer = $api->create($iCustomer);
+		$oCustomer = $api->create($iCustomer); /** @var oCustomer $oCustomer */
 		print_r("Response ID: {$oCustomer->getId()}\n");
 		$this->showLastResponse();
 	}
 
 	/** 2017-02-11 */
-	function t02_DeleteAll():void {array_map(function($id) {
-		$this->api()->delete((new iCustomer)->setId($id));
-	}, $this->ids());}
+	function t02_DeleteAll():void {array_map(function($id) {$this->api()->delete((new iCustomer)->setId($id));}, $this->ids());}
 
 	/** 2017-02-11 */
 	function t03_GetById():void {
