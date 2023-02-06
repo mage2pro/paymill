@@ -26,15 +26,11 @@ final class Customer extends CaseT {
 
 	/** 2017-02-11 */
 	function t03_GetById():void {
-		/** @var API $api */
-		$api = $this->api();
-		/** @var string $id */
-		$id = 'client_cbe81b8bf830d7bbbb60';
-		/** @var iCustomer $iCustomer */
-		$iCustomer = new iCustomer;
+		$api = $this->api(); /** @var API $api */
+		$id = 'client_cbe81b8bf830d7bbbb60'; /** @var string $id */
+		$iCustomer = new iCustomer; /** @var iCustomer $iCustomer */
 		$iCustomer->setId($id);
-		/** @var oCustomer $oCustomer */
-		$oCustomer = $api->getOne($iCustomer);
+		$oCustomer = $api->getOne($iCustomer); /** @var oCustomer $oCustomer */
 		array_map(function(oCard $oCard) {
 			xdebug_break();
 		}, $oCustomer->getPayment());
