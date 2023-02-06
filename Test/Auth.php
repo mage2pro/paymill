@@ -8,7 +8,7 @@ final class Auth extends CaseT {
 	 * 2017-02-12
 	 * [Paymill] An example of a preauthorization response: https://mage2.pro/t/2731
 	 */
-	function t01() {
+	function t01():void {
 		$iAuth = new iAuth; /** @var iAuth $iAuth */
 		$iAuth->setToken($this->token());
 		$iAuth->setAmount(100);
@@ -18,7 +18,7 @@ final class Auth extends CaseT {
 	}
 
 	/** 2017-02-12 @test */
-	function t02() {
+	function t02():void {
 		/** @var iAuth $iAuth */
 		$iAuth = new iAuth;
 		$iAuth->setId('preauth_4dfe6453fd15d1628a99');
