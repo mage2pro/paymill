@@ -42,12 +42,9 @@ final class Customer extends CaseT {
 	 * @expectedException \Paymill\Services\PaymillException
 	 */
 	function t04_GetNonExistent():void {
-		/** @var API $api */
-		$api = $this->api();
-		/** @var string $id */
-		$id = 'client_NON_EXISTENT';
-		/** @var iCustomer $iCustomer */
-		$iCustomer = new iCustomer;
+		$api = $this->api(); /** @var API $api */
+		$id = 'client_NON_EXISTENT'; /** @var string $id */
+		$iCustomer = new iCustomer; /** @var iCustomer $iCustomer */
 		$iCustomer->setId($id);
 		$api->getOne($iCustomer);
 	}
