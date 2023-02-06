@@ -16,9 +16,9 @@ abstract class CaseT extends \Df\Core\TestCase {
 	final protected function api():API {return dfc($this, function():API {return new API($this->s()->privateKey());});}
 
 	/** 2017-02-11 */
-	final protected function showLastResponse() {
-		print_r("Response data:\n" . df_json_encode($this->api()->getLastResponse()))
-	;}
+	final protected function showLastResponse() {print_r(
+		"Response data:\n" . df_json_encode($this->api()->getLastResponse())
+	);}
 
 	/**
 	 * 2017-02-08
