@@ -44,14 +44,13 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 		# Приходится заводить эту переменную, потому что иначе интерпретатор PHP даёт сбой:
 		# «syntax error, unexpected '->' (T_OBJECT_OPERATOR)».
 		$i = $capture ? new iCharge : new iAuth; /** @var iCharge|iAuth $i */
-		/** @var oCharge|oAuth $o */
 		$o = $this->api()->create($i
 			->setAmount($p[_Charge::K_AMOUNT])
 			->setDescription($p[_Charge::K_DESCRIPTION])
 			->setClient($p[_Charge::K_CUSTOMER_ID])
 			->setCurrency($p[_Charge::K_CURRENCY])
 			->setPayment($p[_Charge::K_CARD])
-		);
+		); /** @var oCharge|oAuth $o */
 		# 2017-02-12
 		# Если $capture == false, то нужно явно инициализировать свойство payment,
 		# иначе оно будет содержать не объект (банковскую карту), а лишь идентификатор этого объекта.
