@@ -18,7 +18,6 @@ final class Settings extends \Df\StripeClone\Settings {
 	 * Первый аргумент — для «да», второй — для «нет».
 	 * @param mixed ...$a [optional]
 	 * @used-by self::prefill()
-	 * @return bool
 	 */
-	private function test3DS(...$a) {return df_b($a, $this->b());}
+	private function test3DS(...$a):bool {return df_b($a, $this->b());}
 }
