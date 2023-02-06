@@ -21,7 +21,7 @@ final class Charge extends \Df\StripeClone\Facade\Charge {
 	 * @param int|float $a
 	 * The $a value is already converted to the PSP currency and formatted according to the PSP requirements.
 	 */
-	function capturePreauthorized($id, $a):oCharge {
+	function capturePreauthorized(string $id, $a):oCharge {
 		$oCharge = $this->load($id); /** @var oCharge $oCharge */
 		return $this->api()->create((new iCharge)
 			# 2019-02-19 Для перестраховки от конверсионных погрешностей не используем $a.
