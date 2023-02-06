@@ -34,9 +34,8 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 * @see \Df\StripeClone\Facade\Customer::create()
 	 * @used-by \Df\StripeClone\Payer::newCard()
 	 * @param array(string => mixed) $p
-	 * @return C
 	 */
-	function create(array $p) {
+	function create(array $p):C {
 		/** @var C $result */
 		$result = $this->api()->create((new iCustomer)
 			->setEmail($p[Reg::K_EMAIL])->setDescription($p[Reg::K_DESCRIPTION])
