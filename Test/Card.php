@@ -10,10 +10,8 @@ final class Card extends CaseT {
 
 	/** 2017-02-08 */
 	function t01():void {
-		/** @var API $api */
-		$api = $this->api();
-		/** @var oCard $oCard */
-		$oCard = $api->create((new iCard)->setToken($this->token()));
+		$api = $this->api(); /** @var API $api */
+		$oCard = $api->create((new iCard)->setToken($this->token())); /** @var oCard $oCard */
 		print_r("Response ID: {$oCard->getId()}\n");
 		$this->showLastResponse();
 	}
