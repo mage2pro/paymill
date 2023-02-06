@@ -14,10 +14,8 @@ final class Charge extends CaseT {
 
 	/** 2017-02-11 */
 	function t01():void {
-		/** @var lRequest $api */
-		$api = $this->api();
-		/** @var iCustomer $iCustomer */
-		$iCustomer = new iCustomer;
+		$api = $this->api(); /** @var lRequest $api */
+		$iCustomer = new iCustomer; /** @var iCustomer $iCustomer */
 		$iCustomer->setEmail('admin@mage2.pro');
 		$iCustomer->setDescription('Дмитрий Федюк');
 		/** @var oCustomer $oCustomer */
