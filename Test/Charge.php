@@ -48,5 +48,5 @@ final class Charge extends CaseT {
 	 * Возвращает не все записи, а только часть.
 	 * @return string[]
 	 */
-	private function ids():void {return array_column($this->api()->getAll(new iCharge), 'id');}
+	private function ids():array {return array_column($this->api()->getAll(new iCharge), 'id');}
 }
