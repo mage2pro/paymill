@@ -44,8 +44,7 @@ final class Charge extends CaseT {
 	function t02_ListAll():void {print_r("Response data:\n" . df_json_encode($this->ids()));}
 
 	/**
-	 * 2017-02-11
-	 * Возвращает не все записи, а только часть.
+	 * 2017-02-11 Возвращает не все записи, а только часть.
 	 * @return string[]
 	 */
 	private function ids():array {return array_column($this->api()->getAll(new iCharge), 'id');}
