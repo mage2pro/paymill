@@ -37,9 +37,7 @@ final class Customer extends \Df\StripeClone\Facade\Customer {
 	 */
 	function create(array $p):C {
 		/** @var C $r */
-		$r = $this->api()->create((new iCustomer)
-			->setEmail($p[Reg::K_EMAIL])->setDescription($p[Reg::K_DESCRIPTION])
-		);
+		$r = $this->api()->create((new iCustomer)->setEmail($p[Reg::K_EMAIL])->setDescription($p[Reg::K_DESCRIPTION]));
 		$this->cardAdd($r, $p[_Charge::K_CARD]);
 		return $r;
 	}
