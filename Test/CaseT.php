@@ -12,9 +12,8 @@ use Paymill\Request as API;
 abstract class CaseT extends \Df\Core\TestCase {
 	/**
 	 * 2017-02-08
-	 * @return API
 	 */
-	final protected function api() {return dfc($this, function() {return new API($this->s()->privateKey());});}
+	final protected function api():API {return dfc($this, function():API {return new API($this->s()->privateKey());});}
 
 	/** 2017-02-11 */
 	final protected function showLastResponse() {
