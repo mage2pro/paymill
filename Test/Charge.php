@@ -18,23 +18,18 @@ final class Charge extends CaseT {
 		$iCustomer = new iCustomer; /** @var iCustomer $iCustomer */
 		$iCustomer->setEmail('admin@mage2.pro');
 		$iCustomer->setDescription('Дмитрий Федюк');
-		/** @var oCustomer $oCustomer */
-		$oCustomer = $api->create($iCustomer);
-		/** @var iCard $iCard */
-		$iCard = new iCard;
+		$oCustomer = $api->create($iCustomer); /** @var oCustomer $oCustomer */
+		$iCard = new iCard; /** @var iCard $iCard */
 		$iCard->setClient($oCustomer->getId());
 		$iCard->setToken($this->token());
-		/** @var oCard $oCard */
-		$oCard = $api->create($iCard);
-		/** @var iCharge $iCharge */
-		$iCharge = new iCharge;
+		$oCard = $api->create($iCard); /** @var oCard $oCard */
+		$iCharge = new iCharge; /** @var iCharge $iCharge */
 		$iCharge->setAmount(100);
 		$iCharge->setClient($oCustomer->getId());
 		$iCharge->setCurrency('EUR');
 		$iCharge->setPayment($oCard->getId());
 		//$reqTrans->setToken($this->token());
-		/** @var oCharge $oCharge */
-		$oCharge = $api->create($iCharge);
+		$oCharge = $api->create($iCharge); /** @var oCharge $oCharge */
 		$this->showLastResponse();
 	}
 
